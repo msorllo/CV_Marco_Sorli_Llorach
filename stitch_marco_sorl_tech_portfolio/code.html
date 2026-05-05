@@ -140,6 +140,7 @@
         .stagger.is-visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.21s}
         .stagger.is-visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.29s}
         .stagger.is-visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.37s}
+        .stagger.is-visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.45s}
 
         /* ── TYPEWRITER CURSOR ───────────────── */
         .tw-cursor{display:inline-block;width:2px;height:1em;background:#00dce3;margin-left:3px;animation:blinkCursor .8s infinite;vertical-align:middle}
@@ -179,6 +180,42 @@
         /* ── 3D SECTION EFFECT ───────────────── */
         .section-3d { opacity: 0; transform: perspective(800px) rotateX(8deg) translateY(40px); transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .section-3d.is-visible { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0); }
+
+        /* PREMIUM MOTION LAYER */
+        .aurora-grid{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+          radial-gradient(circle at 18% 20%,rgba(0,247,255,.13),transparent 24%),
+          radial-gradient(circle at 82% 12%,rgba(112,0,255,.14),transparent 26%),
+          radial-gradient(circle at 55% 85%,rgba(84,248,255,.08),transparent 28%),
+          linear-gradient(180deg,#060f16 0%,#0b141c 48%,#060f16 100%);
+        }
+        .aurora-grid::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,220,227,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,220,227,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,30%),black 0%,transparent 68%);animation:gridDrift 18s linear infinite}
+        .aurora-grid::after{content:'';position:absolute;inset:-20%;background:conic-gradient(from 90deg at 50% 50%,transparent,rgba(0,220,227,.12),transparent,rgba(112,0,255,.1),transparent);filter:blur(60px);opacity:.6;animation:auroraSpin 26s linear infinite}
+        @keyframes gridDrift{from{background-position:0 0,0 0}to{background-position:64px 64px,64px 64px}}
+        @keyframes auroraSpin{to{transform:rotate(360deg)}}
+        .hud-panel{position:relative;overflow:hidden}
+        .hud-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 0%,rgba(0,247,255,.12) 18%,transparent 35%);transform:translateX(-120%);animation:sweep 7s ease-in-out infinite;pointer-events:none}
+        @keyframes sweep{0%,58%{transform:translateX(-120%)}76%,100%{transform:translateX(120%)}}
+        .float-node{animation:floatNode 5s ease-in-out infinite}
+        .float-node:nth-child(2n){animation-delay:-1.4s}
+        .float-node:nth-child(3n){animation-delay:-2.5s}
+        @keyframes floatNode{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        .metric-tile{position:relative;background:rgba(20,28,36,.76);border:1px solid rgba(0,220,227,.18);padding:1rem;overflow:hidden}
+        .metric-tile::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#00dce3,#7000ff,#00dce3);transform:scaleX(.2);transform-origin:left;transition:transform .7s cubic-bezier(.19,1,.22,1)}
+        .metric-tile:hover::after{transform:scaleX(1)}
+        .flow-card{position:relative;background:rgba(24,32,40,.9);border:1px solid rgba(58,74,74,.9);padding:1.5rem;overflow:hidden;transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+        .flow-card::before{content:'';position:absolute;inset:-1px;background:linear-gradient(115deg,transparent 0%,rgba(0,247,255,.18) 35%,rgba(112,0,255,.18) 55%,transparent 75%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+        .flow-card:hover{transform:translateY(-6px);border-color:rgba(0,247,255,.65);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 34px rgba(0,220,227,.1)}
+        .flow-card:hover::before{opacity:1}
+        .flow-card>*{position:relative;z-index:1}
+        .timeline-glow{background:linear-gradient(180deg,#54f8ff,#7000ff,#54f8ff);box-shadow:0 0 18px rgba(0,220,227,.35)}
+        .command-chip{border:1px solid rgba(0,220,227,.24);background:rgba(6,15,22,.78);padding:.45rem .7rem;font-family:'JetBrains Mono',monospace;font-size:11px;color:#b9caca;transition:background .25s ease,color .25s ease,border-color .25s ease}
+        .command-chip:hover{background:rgba(0,220,227,.12);color:#efffff;border-color:rgba(0,247,255,.65)}
+        .form-status{display:none;border:1px solid rgba(0,220,227,.35);background:rgba(6,15,22,.88);color:#b9caca;padding:.9rem 1rem;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.5}
+        .form-status.is-visible{display:block}
+        @media (prefers-reduced-motion: reduce){
+          .aurora-grid::before,.aurora-grid::after,.hud-panel::before,.float-node,.cube-3d{animation:none!important}
+          .reveal,.reveal-left,.reveal-right,.stagger>*,.section-3d{transition:none!important}
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -268,6 +305,7 @@
     </script>
 </head>
 <body class="bg-background text-on-background font-body-sm min-h-screen relative flex flex-col pt-16">
+<div class="aurora-grid" aria-hidden="true"></div>
 <div class="scanlines"></div>
 <!-- TopAppBar -->
 <nav class="bg-slate-950/80 backdrop-blur-md font-['Space_Grotesk'] tracking-tight docked full-width top-0 border-b border-cyan-500/20 shadow-[0_0_15px_rgba(0,247,255,0.1)] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 transition-all duration-300 ease-in-out">
@@ -278,6 +316,7 @@
 <a class="text-cyan-400 border-b border-cyan-400 pb-1" href="#sobre-mi">Sobre Mí</a>
 <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#habilidades">Habilidades</a>
 <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#proyectos">Proyectos</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#automatizaciones">Automatizaciones</a>
 <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#experiencia">Experiencia</a>
 <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#contacto">Contacto</a>
 </div>
@@ -341,6 +380,20 @@
       <a href="#habilidades" class="border border-primary text-primary font-label-caps text-label-caps py-2 px-5 hover:bg-primary hover:text-on-primary transition-colors">VER SKILLS_</a>
       <a href="#contacto" class="border border-outline-variant text-on-surface-variant font-label-caps text-label-caps py-2 px-5 hover:border-secondary hover:text-secondary transition-colors">CONTACT_</a>
     </div>
+    <div class="grid grid-cols-3 gap-3 mt-3 stagger">
+      <div class="metric-tile">
+        <div class="font-headline-md text-primary-fixed">24/7</div>
+        <div class="font-terminal-code text-on-surface-variant" style="font-size:10px">Linux + IA local</div>
+      </div>
+      <div class="metric-tile">
+        <div class="font-headline-md text-secondary">N8N</div>
+        <div class="font-terminal-code text-on-surface-variant" style="font-size:10px">flujos agénticos</div>
+      </div>
+      <div class="metric-tile">
+        <div class="font-headline-md text-primary">SMR</div>
+        <div class="font-terminal-code text-on-surface-variant" style="font-size:10px">2024-2026</div>
+      </div>
+    </div>
   </div>
 
   <!-- COL 3: 3D Cube -->
@@ -360,12 +413,18 @@
 </section>
 
 <!-- RESUMEN PROFESIONAL -->
-<section class="grid md:grid-cols-2 gap-gutter" id="sobre-mi">
-<div class="bg-surface-container-high p-8 border border-outline-variant glow-card">
+<section class="grid md:grid-cols-2 gap-gutter" id="perfil">
+<div class="bg-surface-container-high p-8 border border-outline-variant glow-card hud-panel">
 <h2 class="font-headline-md text-headline-md text-primary-fixed mb-4">RESUMEN PROFESIONAL</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant">
-                    Técnico de Redes y Sistemas con especialización en administración de entornos Windows y Linux. Experto en configuración de infraestructuras LAN/Wi-Fi y gestión de servicios críticos (DHCP/DNS). Mi enfoque combina disciplina técnica con una mentalidad proactiva, garantizando un soporte impecable y soluciones de alta disponibilidad.
+                    Técnico informático altamente disciplinado, especializado en administración de sistemas, redes y automatización agéntica. Combino Windows Server, Linux, N8N, modelos locales y desarrollo Python para convertir necesidades reales en soluciones prácticas, documentadas y orientadas a precisión operativa.
                 </p>
+<div class="flex flex-wrap gap-2 mt-6">
+  <span class="command-chip">optimización_recursos</span>
+  <span class="command-chip">soporte_usuario</span>
+  <span class="command-chip">privacidad_local</span>
+  <span class="command-chip">documentación</span>
+</div>
 </div>
 <!-- ABOUT ME (TERMINAL) -->
 <div class="bg-[#0d1117] border border-outline-variant rounded-DEFAULT overflow-hidden shadow-lg glow-card flex flex-col">
@@ -377,11 +436,11 @@
 </div>
 <div class="p-6 font-terminal-code text-terminal-code text-primary-fixed-dim leading-relaxed flex-grow">
 <p class="mb-2"><span class="text-primary">&gt;</span> Disciplina y Rigor:</p>
-<p class="ml-4 mb-4 text-on-surface-variant">Compromiso total con la integridad del sistema y la puntualidad en las entregas. Procesos y configuraciones siempre documentadas bajo estándares profesionales.</p>
+<p class="ml-4 mb-4 text-on-surface-variant">Compromiso total con el trabajo bien hecho y la entrega de soluciones testeadas, estables y documentadas.</p>
 <p class="mb-2"><span class="text-primary">&gt;</span> Resolución Proactiva de Problemas:</p>
-<p class="ml-4 mb-4 text-on-surface-variant">Capacidad de análisis técnico para identificar vulnerabilidades y proponer optimizaciones que escalen la eficiencia operativa.</p>
+<p class="ml-4 mb-4 text-on-surface-variant">Capacidad de análisis técnico para diagnosticar fallos críticos, resolver incidencias y proponer mejoras de eficiencia.</p>
 <p class="mb-2"><span class="text-primary">&gt;</span> Mentalidad de Aprendizaje Continuo:</p>
-<p class="ml-4 text-on-surface-variant">Autodidacta por vocación. Capacidad de dominar nuevas arquitecturas de red y herramientas de automatización en ciclos cortos de tiempo.</p>
+<p class="ml-4 text-on-surface-variant">Autodidacta por vocación, con foco en IA agéntica, automatización y adopción rápida de tecnologías nuevas.</p>
 <span class="animate-pulse text-primary">_</span>
 </div>
 </div>
@@ -403,6 +462,7 @@
         <li>&gt; Kali Linux</li>
         <li>&gt; VirtualBox / Packet Tracer</li>
         <li>&gt; Montaje y Mant. Hardware</li>
+        <li>&gt; Gestión de almacenamiento</li>
       </ul>
     </div>
   </div>
@@ -417,6 +477,7 @@
         <li>&gt; Routers / Switches</li>
         <li>&gt; DNS, DHCP, FTP</li>
         <li>&gt; TCP/IP</li>
+        <li>&gt; Diseño y montaje LAN/WLAN</li>
       </ul>
     </div>
   </div>
@@ -429,6 +490,8 @@
       <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
         <li>&gt; Seguridad informática básica</li>
         <li>&gt; LOPD (Protección de datos)</li>
+        <li>&gt; Periféricos y diagnóstico</li>
+        <li>&gt; Soporte a usuario final</li>
         <li>&gt; Idiomas: ES / EN / VA</li>
       </ul>
     </div>
@@ -444,6 +507,7 @@
         <li>&gt; Claude Code</li>
         <li>&gt; Google Antigravity</li>
         <li>&gt; Ollama, OpenClaw</li>
+        <li>&gt; Agentes IA con validación humana</li>
       </ul>
     </div>
   </div>
@@ -456,11 +520,64 @@
 <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
 <li>&gt; Python</li>
 <li>&gt; Chrome extensions</li>
+<li>&gt; Apps de escritorio</li>
 <li>&gt; Web avanzada (3D/Animaciones)</li>
 <li>&gt; Apps web</li>
+<li>&gt; Digitalización y software</li>
 </ul>
     </div>
   </div>
+</div>
+</div>
+</section>
+
+<!-- AUTOMATION CORE -->
+<section class="border-t border-outline-variant pt-16 section-3d" id="automatizaciones">
+<div class="flex flex-col lg:flex-row gap-gutter items-stretch">
+<div class="lg:w-1/3 bg-[#0d1117] border border-outline-variant p-6 hud-panel">
+<p class="font-terminal-code text-secondary mb-3" style="font-size:11px">root@automation-core:~# run pipeline.audit</p>
+<h2 class="font-headline-md text-headline-md text-primary-fixed mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">hub</span> IA_AUTOMATION_CORE
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+Flujos orientados a productividad real: captura de datos, clasificación, generación asistida y validación humana para mantener control y calidad.
+</p>
+<div class="space-y-2 font-terminal-code text-terminal-code text-on-surface-variant">
+<p><span class="text-primary">&gt;</span> N8N como orquestador principal</p>
+<p><span class="text-primary">&gt;</span> Ollama para modelos locales</p>
+<p><span class="text-primary">&gt;</span> Google Sheets como índice operativo</p>
+<p><span class="text-primary">&gt;</span> Claude Code para acelerar desarrollo</p>
+</div>
+</div>
+<div class="lg:w-2/3 grid sm:grid-cols-2 gap-6 stagger">
+<article class="flow-card float-node">
+<div class="flex items-center gap-2 text-primary-fixed mb-3">
+<span class="material-symbols-outlined">mark_email_read</span>
+<h3 class="font-label-caps text-label-caps uppercase">Gestión de Leads</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sistema en N8N que captura correos, indexa datos en Google Sheets y genera borradores de respuesta mediante agentes de IA para revisión humana.</p>
+</article>
+<article class="flow-card float-node">
+<div class="flex items-center gap-2 text-secondary mb-3">
+<span class="material-symbols-outlined">dns</span>
+<h3 class="font-label-caps text-label-caps uppercase">Servidor Local 24/7</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reacondicionamiento de hardware antiguo para desplegar Linux, N8N y Ollama, reduciendo costes de API y priorizando privacidad.</p>
+</article>
+<article class="flow-card float-node">
+<div class="flex items-center gap-2 text-primary-fixed mb-3">
+<span class="material-symbols-outlined">developer_mode</span>
+<h3 class="font-label-caps text-label-caps uppercase">Software a Medida</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aplicaciones de escritorio en Python, extensiones Chrome de productividad y desarrollo web avanzado con interfaces 3D y animaciones.</p>
+</article>
+<article class="flow-card float-node">
+<div class="flex items-center gap-2 text-secondary mb-3">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<h3 class="font-label-caps text-label-caps uppercase">Digitalización</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Conversión de tareas manuales y archivos antiguos en procesos digitales más rápidos, trazables y fáciles de mantener.</p>
+</article>
 </div>
 </div>
 </section>
@@ -473,46 +590,51 @@
 <span class="material-symbols-outlined">folder_special</span> PROJECTS
                 </h2>
 <div class="grid sm:grid-cols-2 gap-6">
-<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal">
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
 <h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Servidor Local (24/7)</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Linux server centralizado con N8N para flujos de trabajo e instancias de IA locales (Ollama).</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Linux server centralizado con N8N y modelos locales Ollama, construido sobre hardware reacondicionado para privacidad, ahorro de costes API y disponibilidad continua.</p>
 </div>
-<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal">
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
 <h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Infraestructura de Red</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Configuración avanzada de servicios DHCP/DNS y segmentación de redes en entornos virtualizados.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Diseño y montaje de redes LAN/WLAN, routers, switches y servicios DNS, DHCP y FTP en entornos reales y virtualizados.</p>
 </div>
-<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container sm:col-span-2 reveal">
-<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Automatización & Dev</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Desarrollo de extensiones de Chrome para productividad y aplicaciones Python para automatización de leads mediante agentes de IA.</p>
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Automatización de Leads</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Captura de correos, registro en Google Sheets y borradores de respuesta generados por IA, con revisión humana antes del envío.</p>
+</div>
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Python & Chrome Extensions</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Desarrollo de aplicaciones de escritorio en Python y extensiones de productividad para Chrome, enfocadas a automatizar tareas repetitivas.</p>
 </div>
 </div>
 </div>
 <!-- Experience & Education Column (Vertical Timeline) -->
-<div class="space-y-8 section-3d" id="experiencia-section">
+<div class="space-y-8 section-3d" id="experiencia">
 <h2 class="font-headline-md text-headline-md text-primary-fixed flex items-center gap-2">
 <span class="material-symbols-outlined">work_history</span> EXPERIENCE
                 </h2>
 <div class="relative border-l border-outline-variant pl-6 space-y-8">
+<div class="absolute -left-px top-0 w-px h-full timeline-glow opacity-60"></div>
 <!-- Exp 1 -->
 <div class="relative reveal-left">
 <div class="absolute -left-[29px] top-1 w-2 h-2 bg-primary-fixed shadow-[0_0_10px_#54f8ff] animate-pulse"></div>
 <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico de Soporte IT</h4>
 <p class="font-terminal-code text-terminal-code text-secondary mb-2">IES Ramón Cid | Mar - Jun 2026</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Mentoring técnico, mantenimiento de infraestructura de red y digitalización de aulas.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Resolución de incidencias, mentoring técnico a estudiantes de 1º y 2º ESO, mantenimiento preventivo del parque informático, red y digitalización de documentos antiguos.</p>
 </div>
 <!-- Exp 2 -->
 <div class="relative reveal-left">
 <div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
 <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico Informático</h4>
 <p class="font-terminal-code text-terminal-code text-secondary mb-2">Audiograu | May - Jun 2025</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Soporte técnico integral para eventos masivos, iluminación y sonido profesional.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Soporte técnico y configuración de sistemas de sonido e iluminación profesional, aplicando precisión en montaje de equipos tecnológicos.</p>
 </div>
 <!-- Exp 3 -->
 <div class="relative reveal-left">
 <div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
 <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Prácticas Informática</h4>
 <p class="font-terminal-code text-terminal-code text-secondary mb-2">Tienda Local Benicarló | 2024</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Montaje de equipos a medida, diagnóstico de hardware y atención técnica al cliente.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Montaje de equipos a medida, diagnóstico de hardware, gestión de periféricos, almacenamiento y atención técnica al cliente.</p>
 </div>
 <!-- Edu 1 -->
 <div class="relative pt-4 reveal-left">
@@ -537,20 +659,25 @@
 <p class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">account_circle</span> @marco.sorli</p>
 </div>
 </div>
-<form class="bg-surface-container-high p-6 border border-outline-variant flex flex-col gap-4">
+<form id="contactForm" class="bg-surface-container-high p-6 border border-outline-variant flex flex-col gap-4" action="https://formsubmit.co/msorlillorach@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Marco Sorlí"/>
+<input type="hidden" name="_captcha" value="false"/>
+<input type="hidden" name="_template" value="table"/>
+<input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off"/>
 <div>
 <label class="block font-label-caps text-label-caps text-primary mb-2">Nombre</label>
-<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" placeholder="&gt; introducir_nombre" type="text"/>
+<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" name="nombre" placeholder="&gt; introducir_nombre" type="text" required/>
 </div>
 <div>
 <label class="block font-label-caps text-label-caps text-primary mb-2">Email</label>
-<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" placeholder="&gt; introducir_email" type="email"/>
+<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" name="email" placeholder="&gt; introducir_email" type="email" required/>
 </div>
 <div>
 <label class="block font-label-caps text-label-caps text-primary mb-2">Mensaje</label>
-<textarea class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2 resize-none" placeholder="&gt; escribir_mensaje..." rows="4"></textarea>
+<textarea class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2 resize-none" name="mensaje" placeholder="&gt; escribir_mensaje..." rows="4" required></textarea>
 </div>
-<button class="mt-4 bg-transparent border border-primary text-primary font-label-caps text-label-caps py-3 px-6 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2" type="button">
+<div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+<button class="mt-4 bg-transparent border border-primary text-primary font-label-caps text-label-caps py-3 px-6 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2" type="submit">
 <span class="material-symbols-outlined">send</span> ENVIAR_PACKET
                 </button>
 </form>
@@ -573,9 +700,10 @@
   const phrases = [
     '>_ Administrador de Sistemas & Redes',
     '>_ Especialista Windows Server & Linux',
-    '>_ Automatizador con N8N e IA',
+    '>_ Automatización agéntica con N8N e IA',
     '>_ Técnico de Soporte IT · SMR 2024-2026',
-    '>_ Desarrollador Python & Chrome Extensions'
+    '>_ Python, Chrome Extensions y software',
+    '>_ Ollama local · privacidad y ahorro API'
   ];
   let pi = 0, ci = 0, del = false, cursor;
   function tick() {
@@ -595,6 +723,46 @@
     }
   }
   tick();
+})();
+
+/* PREMIUM BACKGROUND SPOTLIGHT */
+(function initSpotlight() {
+  const layer = document.querySelector('.aurora-grid');
+  if (!layer) return;
+  window.addEventListener('pointermove', e => {
+    layer.style.setProperty('--spot-x', `${(e.clientX / window.innerWidth) * 100}%`);
+    layer.style.setProperty('--spot-y', `${(e.clientY / window.innerHeight) * 100}%`);
+  }, { passive: true });
+})();
+
+/* LOCAL FILE CONTACT FALLBACK */
+(function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', e => {
+    if (window.location.protocol !== 'file:') return;
+    e.preventDefault();
+    const nombre = form.elements.nombre.value.trim();
+    const email = form.elements.email.value.trim();
+    const mensaje = form.elements.mensaje.value.trim();
+    if (!nombre || !email || !mensaje) {
+      form.reportValidity();
+      return;
+    }
+    const subject = encodeURIComponent('Nuevo mensaje desde el portfolio de Marco Sorlí');
+    const plainBody = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
+    const body = encodeURIComponent(plainBody);
+    const mailto = `mailto:msorlillorach@gmail.com?subject=${subject}&body=${body}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(`Para: msorlillorach@gmail.com\nAsunto: Nuevo mensaje desde el portfolio de Marco Sorlí\n\n${plainBody}`).catch(() => {});
+    }
+    if (status) {
+      status.innerHTML = 'Estás abriendo la web como archivo local. Para enviar directo, publícala o ábrela desde un servidor web.<br/>He copiado el mensaje al portapapeles y voy a abrir tu app de correo.';
+      status.classList.add('is-visible');
+    }
+    window.location.href = mailto;
+  });
 })();
 
 /* ── 3D CUBE (interactive_3d_cube_skill.md) ──────────────── */
