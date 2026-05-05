@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marco Sorlí Llorach — Técnico Sistemas & Automatizador IA</title>
+<meta name="description" content="Portfolio de Marco Sorlí Llorach. Técnico de Redes y Sistemas, N8N, Linux, Windows Server, Python. Benicarló, Castellón."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom Styles for Glitch, Scanlines, and Glows not easily done with utility classes alone */
+        body {
+            background-color: #0b141c; /* background */
+            color: #dae3ee; /* on-background */
+        }
+        
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.15;
+        }
+
+        .glitch-hover {
+            position: relative;
+        }
+
+        .glitch-hover:hover::before, .glitch-hover:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #efffff; /* primary */
+            color: #003739; /* on-primary */
+            pointer-events: none; /* Prevents hover jitter loop */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glitch-hover:hover::before {
+            left: 2px;
+            text-shadow: -1px 0 #ff00ff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        .glitch-hover:hover::after {
+            left: -2px;
+            text-shadow: -1px 0 #00ffff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 86px, 0); }
+            5% { clip: rect(69px, 9999px, 14px, 0); }
+            10% { clip: rect(54px, 9999px, 10px, 0); }
+            15% { clip: rect(98px, 9999px, 73px, 0); }
+            20% { clip: rect(64px, 9999px, 93px, 0); }
+            25% { clip: rect(55px, 9999px, 84px, 0); }
+            30% { clip: rect(74px, 9999px, 55px, 0); }
+            35% { clip: rect(91px, 9999px, 1px, 0); }
+            40% { clip: rect(31px, 9999px, 89px, 0); }
+            45% { clip: rect(89px, 9999px, 16px, 0); }
+            50% { clip: rect(8px, 9999px, 49px, 0); }
+            55% { clip: rect(81px, 9999px, 63px, 0); }
+            60% { clip: rect(63px, 9999px, 31px, 0); }
+            65% { clip: rect(44px, 9999px, 4px, 0); }
+            70% { clip: rect(4px, 9999px, 8px, 0); }
+            75% { clip: rect(33px, 9999px, 20px, 0); }
+            80% { clip: rect(12px, 9999px, 96px, 0); }
+            85% { clip: rect(84px, 9999px, 44px, 0); }
+            90% { clip: rect(67px, 9999px, 53px, 0); }
+            95% { clip: rect(96px, 9999px, 81px, 0); }
+            100% { clip: rect(61px, 9999px, 51px, 0); }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #00dce3; /* surface-tint */
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00dce3; }
+        }
+        
+        .glow-card:hover {
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.2); /* primary-container approx */
+            border-color: #00f7ff;
+            transform: translateX(2px);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        /* Thin scrollbar for terminal vibes */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b141c; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d363e; 
+            border: 1px solid #00f7ff;
+        }
+
+        /* ── SCROLL REVEAL ───────────────────── */
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease-out,transform 1s ease-out}
+        .reveal.is-visible{opacity:1;transform:translateY(0)}
+        .reveal-left{opacity:0;transform:translateX(-36px);transition:opacity 1s ease-out,transform 1s ease-out}
+        .reveal-left.is-visible{opacity:1;transform:translateX(0)}
+        .reveal-right{opacity:0;transform:translateX(36px);transition:opacity 1s ease-out,transform 1s ease-out}
+        .reveal-right.is-visible{opacity:1;transform:translateX(0)}
+        .stagger>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+        .stagger.is-visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+        .stagger.is-visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.13s}
+        .stagger.is-visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.21s}
+        .stagger.is-visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.29s}
+        .stagger.is-visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.37s}
+
+        /* ── TYPEWRITER CURSOR ───────────────── */
+        .tw-cursor{display:inline-block;width:2px;height:1em;background:#00dce3;margin-left:3px;animation:blinkCursor .8s infinite;vertical-align:middle}
+        @keyframes blinkCursor{0%,100%{opacity:1}50%{opacity:0}}
+
+        /* ── TILT 3D CARDS ───────────────────── */
+        .tilt-card{position:relative;perspective:1200px;width:100%;cursor:crosshair}
+        .tilt-card__inner{position:relative;width:100%;height:100%;background:rgba(24,32,40,.95);border:1px solid rgba(0,220,227,.2);padding:1.5rem;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.25,.1,.25,1),box-shadow .8s ease,border-color .8s ease;overflow:hidden}
+        .tilt-card__inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(0,220,227,.1) 0%,transparent 60%);opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:0}
+        .tilt-card__inner.is-hovered::before{opacity:1}
+        .tilt-card__content{position:relative;z-index:1}
+
+        /* ── INTERACTIVE 3D CUBE ─────────────── */
+        .cube-wrap{width:160px;height:160px;perspective:1000px;cursor:grab}
+        .cube-3d { width:100%; height:100%; position:relative; transform-style:preserve-3d; animation:rotateCube 45s infinite ease-out; }
+        .cube-3d div{position:absolute;width:160px;height:160px;background:rgba(0,220,227,.03);border:1px solid rgba(0,220,227,.35);box-shadow:0 0 16px rgba(0,220,227,.12);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.08em;color:#54f8ff;backface-visibility:visible}
+        .cube-3d .cf{transform:translateZ(80px)}
+        .cube-3d .cb{transform:rotateY(180deg) translateZ(80px);border-color:rgba(112,0,255,.5);box-shadow:0 0 16px rgba(112,0,255,.2)}
+        .cube-3d .cr{transform:rotateY(90deg) translateZ(80px)}
+        .cube-3d .cl{transform:rotateY(-90deg) translateZ(80px);border-color:rgba(112,0,255,.45)}
+        .cube-3d .ct{transform:rotateX(90deg) translateZ(80px)}
+        .cube-3d .cbot{transform:rotateX(-90deg) translateZ(80px);border-color:rgba(112,0,255,.4)}
+        @keyframes rotateCube{from{transform:rotateX(0) rotateY(0)}to{transform:rotateX(360deg) rotateY(360deg)}}
+
+        /* ── HERO PHOTO FRAME ────────────────── */
+        .photo-frame{position:relative;width:180px;height:180px;flex-shrink:0}
+        .photo-frame__cut{width:100%;height:100%;overflow:hidden;clip-path:polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)}
+        .photo-frame__cut img,.photo-placeholder{width:100%;height:100%;object-fit:cover;display:block}
+        .photo-placeholder{background:linear-gradient(135deg,#0d1117 0%,#182028 60%,#0d1117 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:rgba(0,220,227,.25);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-align:center}
+        .photo-frame::before,.photo-frame::after,.photo-frame .br-corners::before,.photo-frame .br-corners::after{content:'';position:absolute;width:14px;height:14px;border-color:#00dce3;border-style:solid}
+        .photo-frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+        .photo-frame::after{top:-1px;right:-1px;border-width:2px 2px 0 0}
+        .photo-frame .br-corners::before{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+        .photo-frame .br-corners::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+        .photo-frame .scan-line{position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,transparent,#00dce3,transparent);animation:scanAnim 3s linear infinite;opacity:.5;pointer-events:none}
+        @keyframes scanAnim{0%{top:0}100%{top:100%}}
+        /* ── 3D SECTION EFFECT ───────────────── */
+        .section-3d { opacity: 0; transform: perspective(800px) rotateX(8deg) translateY(40px); transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .section-3d.is-visible { opacity: 1; transform: perspective(800px) rotateX(0deg) translateY(0); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#5700c9",
+                        "inverse-primary": "#00696d",
+                        "primary-fixed-dim": "#00dce3",
+                        "on-primary-container": "#006d71",
+                        "on-tertiary": "#2d3137",
+                        "on-secondary-fixed": "#23005b",
+                        "inverse-surface": "#dae3ee",
+                        "on-secondary": "#3c0090",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0b141c",
+                        "surface-container-high": "#222b33",
+                        "on-tertiary-fixed": "#181c22",
+                        "surface-tint": "#00dce3",
+                        "on-primary-fixed-variant": "#004f52",
+                        "on-secondary-container": "#ddcdff",
+                        "surface-container-lowest": "#060f16",
+                        "outline": "#849494",
+                        "surface-dim": "#0b141c",
+                        "error": "#ffb4ab",
+                        "on-surface": "#dae3ee",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary-fixed": "#dfe2eb",
+                        "surface-container-low": "#141c24",
+                        "on-tertiary-container": "#5f626a",
+                        "tertiary-fixed-dim": "#c3c6cf",
+                        "surface-variant": "#2d363e",
+                        "on-primary": "#003739",
+                        "inverse-on-surface": "#29313a",
+                        "on-surface-variant": "#b9caca",
+                        "secondary": "#d1bcff",
+                        "surface-bright": "#313a43",
+                        "primary-container": "#00f7ff",
+                        "error-container": "#93000a",
+                        "background": "#0b141c",
+                        "tertiary": "#fcfbff",
+                        "surface-container-highest": "#2d363e",
+                        "secondary-container": "#7000ff",
+                        "primary-fixed": "#54f8ff",
+                        "on-error": "#690005",
+                        "on-background": "#dae3ee",
+                        "primary": "#efffff",
+                        "tertiary-container": "#dcdfe8",
+                        "surface-container": "#182028",
+                        "outline-variant": "#3a4a4a",
+                        "on-tertiary-fixed-variant": "#43474e",
+                        "on-primary-fixed": "#002021",
+                        "secondary-fixed": "#e9ddff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin": "32px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["JetBrains Mono", "monospace"],
+                        "headline-xl": ["Space Grotesk", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "terminal-code": ["JetBrains Mono", "Fira Code", "monospace"],
+                        "headline-md": ["Space Grotesk", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "terminal-code": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-sm min-h-screen relative flex flex-col pt-16">
+<div class="scanlines"></div>
+<!-- TopAppBar -->
+<nav class="bg-slate-950/80 backdrop-blur-md font-['Space_Grotesk'] tracking-tight docked full-width top-0 border-b border-cyan-500/20 shadow-[0_0_15px_rgba(0,247,255,0.1)] fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 transition-all duration-300 ease-in-out">
+<div class="text-xl font-bold tracking-tighter text-cyan-400 uppercase">
+            MSL // ROOT
+        </div>
+<div class="hidden md:flex gap-6">
+<a class="text-cyan-400 border-b border-cyan-400 pb-1" href="#sobre-mi">Sobre Mí</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#habilidades">Habilidades</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#proyectos">Proyectos</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#experiencia">Experiencia</a>
+<a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#contacto">Contacto</a>
+</div>
+<div class="flex items-center gap-4 text-cyan-400">
+<span class="material-symbols-outlined hover:bg-cyan-500/10 hover:text-cyan-300 cursor-pointer p-2 rounded">terminal</span>
+</div>
+</nav>
+<!-- Floating Action Button -->
+<a class="fixed bottom-margin right-margin z-50 bg-primary text-on-primary font-label-caps text-label-caps px-6 py-4 flex items-center gap-2 border-2 border-primary glitch-hover hover:shadow-[0_0_20px_rgba(0,247,255,0.5)] transition-all" data-text="[ Descargar CV.pdf ]" href="../CV.pdf">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+        [ Descargar CV.pdf ]
+    </a>
+<main class="flex-grow container mx-auto px-margin max-w-container-max flex flex-col gap-16 py-16">
+<!-- HERO -->
+<section class="flex flex-col md:flex-row items-center justify-start gap-12 lg:gap-20 min-h-[560px] border-b border-outline-variant pb-16" id="sobre-mi">
+
+  <!-- COL 1: Photo Placeholder -->
+  <div class="reveal-left flex flex-col items-center gap-4 flex-shrink-0">
+    <div class="photo-frame">
+      <div class="photo-frame__cut">
+        <!-- PHOTO: Cuando tengas foto, reemplaza este div por: <img src="assets/photo.jpg" alt="Marco Sorlí Llorach"/> -->
+        <div class="photo-placeholder">
+          <span class="material-symbols-outlined" style="font-size:3rem;opacity:.3;color:#00dce3">person</span>
+          <span>FOTO<br/>PENDIENTE</span>
+        </div>
+      </div>
+      <div class="br-corners"></div>
+      <div class="scan-line"></div>
+    </div>
+    <div class="font-terminal-code text-terminal-code flex items-center gap-2" style="font-size:10px;color:rgba(0,220,227,.5)">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
+      DISPONIBLE · BENICARLÓ
+    </div>
+  </div>
+
+  <!-- COL 2: Title + Typewriter + CTAs -->
+  <div class="flex flex-col gap-5 text-center md:text-left max-w-2xl">
+    <div class="font-terminal-code text-on-surface-variant" style="font-size:11px">
+      <span class="text-primary-container">root@msl-core</span>:<span class="text-secondary">~</span># <span class="text-primary-fixed">whoami</span>
+    </div>
+    <h1 class="font-headline-xl text-primary" style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1">
+      Marco Sorlí<br/>Llorach
+    </h1>
+    <!-- Dynamic Typewriter (frases del CV) -->
+    <div class="font-terminal-code" style="font-size:clamp(.8rem,1.8vw,.95rem);color:#00dce3;min-height:1.6em">
+      <span id="typewriterHero"></span>
+    </div>
+    <!-- Quick contacts -->
+    <div class="font-terminal-code text-on-surface-variant flex flex-wrap gap-4 justify-center md:justify-start" style="font-size:11px">
+      <a href="tel:+34644476661" class="flex items-center gap-1 hover:text-primary-fixed transition-colors">
+        <span class="material-symbols-outlined" style="font-size:13px">phone_iphone</span>+34 644 476 661
+      </a>
+      <a href="mailto:msorlillorach@gmail.com" class="flex items-center gap-1 hover:text-primary-fixed transition-colors">
+        <span class="material-symbols-outlined" style="font-size:13px">mail</span>msorlillorach@gmail.com
+      </a>
+      <a href="https://github.com/msorllo" target="_blank" class="flex items-center gap-1 hover:text-primary-fixed transition-colors">
+        <span class="material-symbols-outlined" style="font-size:13px">code</span>github/msorllo
+      </a>
+    </div>
+    <div class="flex gap-3 flex-wrap justify-center md:justify-start mt-1">
+      <a href="#habilidades" class="border border-primary text-primary font-label-caps text-label-caps py-2 px-5 hover:bg-primary hover:text-on-primary transition-colors">VER SKILLS_</a>
+      <a href="#contacto" class="border border-outline-variant text-on-surface-variant font-label-caps text-label-caps py-2 px-5 hover:border-secondary hover:text-secondary transition-colors">CONTACT_</a>
+    </div>
+  </div>
+
+  <!-- COL 3: 3D Cube -->
+  <div class="reveal-right hidden lg:flex flex-col items-center gap-3 flex-shrink-0">
+    <div class="cube-wrap" id="cubeContainer">
+      <div class="cube-3d" id="cube3d">
+        <div class="cf">SYS</div>
+        <div class="cb">SEC</div>
+        <div class="cr">NET</div>
+        <div class="cl">AI</div>
+        <div class="ct">DEV</div>
+        <div class="cbot">SMR</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- RESUMEN PROFESIONAL -->
+<section class="grid md:grid-cols-2 gap-gutter" id="sobre-mi">
+<div class="bg-surface-container-high p-8 border border-outline-variant glow-card">
+<h2 class="font-headline-md text-headline-md text-primary-fixed mb-4">RESUMEN PROFESIONAL</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Técnico de Redes y Sistemas con especialización en administración de entornos Windows y Linux. Experto en configuración de infraestructuras LAN/Wi-Fi y gestión de servicios críticos (DHCP/DNS). Mi enfoque combina disciplina técnica con una mentalidad proactiva, garantizando un soporte impecable y soluciones de alta disponibilidad.
+                </p>
+</div>
+<!-- ABOUT ME (TERMINAL) -->
+<div class="bg-[#0d1117] border border-outline-variant rounded-DEFAULT overflow-hidden shadow-lg glow-card flex flex-col">
+<div class="bg-[#161b22] px-4 py-2 border-b border-outline-variant flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-surface-tint"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="font-terminal-code text-terminal-code text-on-surface-variant ml-4">root@msl-core:~# cat values.txt</span>
+</div>
+<div class="p-6 font-terminal-code text-terminal-code text-primary-fixed-dim leading-relaxed flex-grow">
+<p class="mb-2"><span class="text-primary">&gt;</span> Disciplina y Rigor:</p>
+<p class="ml-4 mb-4 text-on-surface-variant">Compromiso total con la integridad del sistema y la puntualidad en las entregas. Procesos y configuraciones siempre documentadas bajo estándares profesionales.</p>
+<p class="mb-2"><span class="text-primary">&gt;</span> Resolución Proactiva de Problemas:</p>
+<p class="ml-4 mb-4 text-on-surface-variant">Capacidad de análisis técnico para identificar vulnerabilidades y proponer optimizaciones que escalen la eficiencia operativa.</p>
+<p class="mb-2"><span class="text-primary">&gt;</span> Mentalidad de Aprendizaje Continuo:</p>
+<p class="ml-4 text-on-surface-variant">Autodidacta por vocación. Capacidad de dominar nuevas arquitecturas de red y herramientas de automatización en ciclos cortos de tiempo.</p>
+<span class="animate-pulse text-primary">_</span>
+</div>
+</div>
+</section>
+<!-- TECHNICAL SKILLS -->
+<section class="border-t border-outline-variant pt-16" id="habilidades">
+<h2 class="font-headline-md text-headline-md text-primary-fixed mb-8 flex items-center gap-2 reveal">
+<span class="material-symbols-outlined">memory</span> SYS_SKILLS
+</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+<!-- Card 1 -->
+<div class="tilt-card">
+  <div class="tilt-card__inner">
+    <div class="tilt-card__content">
+      <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Sistemas y Virtualización</h3>
+      <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
+        <li>&gt; Windows Server (2019/2022)</li>
+        <li>&gt; Ubuntu Server</li>
+        <li>&gt; Kali Linux</li>
+        <li>&gt; VirtualBox / Packet Tracer</li>
+        <li>&gt; Montaje y Mant. Hardware</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Card 2 -->
+<div class="tilt-card">
+  <div class="tilt-card__inner">
+    <div class="tilt-card__content">
+      <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Redes</h3>
+      <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
+        <li>&gt; LAN/WLAN</li>
+        <li>&gt; Routers / Switches</li>
+        <li>&gt; DNS, DHCP, FTP</li>
+        <li>&gt; TCP/IP</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Card 3 -->
+<div class="tilt-card">
+  <div class="tilt-card__inner">
+    <div class="tilt-card__content">
+      <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Seguridad y Soporte</h3>
+      <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
+        <li>&gt; Seguridad informática básica</li>
+        <li>&gt; LOPD (Protección de datos)</li>
+        <li>&gt; Idiomas: ES / EN / VA</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Card 4 -->
+<div class="tilt-card">
+  <div class="tilt-card__inner">
+    <div class="tilt-card__content">
+      <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">IA y Automatización</h3>
+      <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
+        <li>&gt; N8N (Avanzado)</li>
+        <li>&gt; Claude Code</li>
+        <li>&gt; Google Antigravity</li>
+        <li>&gt; Ollama, OpenClaw</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Card 5 -->
+<div class="tilt-card">
+  <div class="tilt-card__inner">
+    <div class="tilt-card__content">
+<h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Desarrollo</h3>
+<ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
+<li>&gt; Python</li>
+<li>&gt; Chrome extensions</li>
+<li>&gt; Web avanzada (3D/Animaciones)</li>
+<li>&gt; Apps web</li>
+</ul>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS & EXPERIENCE (Bento Grid Style) -->
+<section class="grid lg:grid-cols-3 gap-gutter pt-16 border-t border-outline-variant section-3d" id="proyectos-section">
+<!-- Projects Column -->
+<div class="lg:col-span-2 space-y-8" id="proyectos">
+<h2 class="font-headline-md text-headline-md text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined">folder_special</span> PROJECTS
+                </h2>
+<div class="grid sm:grid-cols-2 gap-6">
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Servidor Local (24/7)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Linux server centralizado con N8N para flujos de trabajo e instancias de IA locales (Ollama).</p>
+</div>
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Infraestructura de Red</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configuración avanzada de servicios DHCP/DNS y segmentación de redes en entornos virtualizados.</p>
+</div>
+<div class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container sm:col-span-2 reveal">
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Automatización & Dev</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Desarrollo de extensiones de Chrome para productividad y aplicaciones Python para automatización de leads mediante agentes de IA.</p>
+</div>
+</div>
+</div>
+<!-- Experience & Education Column (Vertical Timeline) -->
+<div class="space-y-8 section-3d" id="experiencia-section">
+<h2 class="font-headline-md text-headline-md text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined">work_history</span> EXPERIENCE
+                </h2>
+<div class="relative border-l border-outline-variant pl-6 space-y-8">
+<!-- Exp 1 -->
+<div class="relative reveal-left">
+<div class="absolute -left-[29px] top-1 w-2 h-2 bg-primary-fixed shadow-[0_0_10px_#54f8ff] animate-pulse"></div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico de Soporte IT</h4>
+<p class="font-terminal-code text-terminal-code text-secondary mb-2">IES Ramón Cid | Mar - Jun 2026</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mentoring técnico, mantenimiento de infraestructura de red y digitalización de aulas.</p>
+</div>
+<!-- Exp 2 -->
+<div class="relative reveal-left">
+<div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico Informático</h4>
+<p class="font-terminal-code text-terminal-code text-secondary mb-2">Audiograu | May - Jun 2025</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Soporte técnico integral para eventos masivos, iluminación y sonido profesional.</p>
+</div>
+<!-- Exp 3 -->
+<div class="relative reveal-left">
+<div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
+<h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Prácticas Informática</h4>
+<p class="font-terminal-code text-terminal-code text-secondary mb-2">Tienda Local Benicarló | 2024</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Montaje de equipos a medida, diagnóstico de hardware y atención técnica al cliente.</p>
+</div>
+<!-- Edu 1 -->
+<div class="relative pt-4 reveal-left">
+<div class="absolute -left-[29px] top-5 w-2 h-2 bg-secondary-container"></div>
+<h4 class="font-label-caps text-label-caps text-secondary mb-1">Grado Medio - SMR</h4>
+<p class="font-terminal-code text-terminal-code text-outline mb-2">IES Joan Coromines | 2024 - 2026</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sistemas Microinformáticos y Redes. Especialización en administración de sistemas y virtualización.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="border-t border-outline-variant pt-16 grid md:grid-cols-2 gap-gutter" id="contacto">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary-fixed mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">terminal</span> INITIATE_CONTACT
+                </h2>
+<div class="font-terminal-code text-terminal-code text-on-surface-variant space-y-4 mb-8">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">phone_iphone</span> +34 644 476 661</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">mail</span> msorlillorach@gmail.com</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">location_on</span> Benicarló, Castellón</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">account_circle</span> @marco.sorli</p>
+</div>
+</div>
+<form class="bg-surface-container-high p-6 border border-outline-variant flex flex-col gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-primary mb-2">Nombre</label>
+<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" placeholder="&gt; introducir_nombre" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-primary mb-2">Email</label>
+<input class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2" placeholder="&gt; introducir_email" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-primary mb-2">Mensaje</label>
+<textarea class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2 resize-none" placeholder="&gt; escribir_mensaje..." rows="4"></textarea>
+</div>
+<button class="mt-4 bg-transparent border border-primary text-primary font-label-caps text-label-caps py-3 px-6 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined">send</span> ENVIAR_PACKET
+                </button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 full-width border-t border-cyan-900/50 w-full py-12 flex flex-col items-center justify-center gap-4 bg-black transition-opacity duration-500 mt-16">
+<div class="text-cyan-400 font-bold">
+            © 2024 MARCO SORLÍ LLORACH | ACCESO_AUTORIZADO
+        </div>
+<div class="flex gap-4">
+<a class="text-slate-500 hover:text-cyan-400 hover:glow-sm transition-colors" href="https://github.com/msorllo" target="_blank">GitHub</a>
+</div>
+</footer>
+<script>
+/* ── TYPEWRITER (typewriter_skill.md) ─────────────────────── */
+(function initTypewriter() {
+  const el = document.getElementById('typewriterHero');
+  if (!el) return;
+  const phrases = [
+    '>_ Administrador de Sistemas & Redes',
+    '>_ Especialista Windows Server & Linux',
+    '>_ Automatizador con N8N e IA',
+    '>_ Técnico de Soporte IT · SMR 2024-2026',
+    '>_ Desarrollador Python & Chrome Extensions'
+  ];
+  let pi = 0, ci = 0, del = false, cursor;
+  function tick() {
+    const phrase = phrases[pi];
+    const shown = phrase.substring(0, ci);
+    if (cursor) cursor.remove();
+    el.textContent = shown;
+    cursor = document.createElement('span');
+    cursor.className = 'tw-cursor';
+    el.appendChild(cursor);
+    if (!del) {
+      if (ci < phrase.length) { ci++; setTimeout(tick, 35 + Math.random() * 25); }
+      else setTimeout(() => { del = true; tick(); }, 1800);
+    } else {
+      if (ci > 0) { ci--; setTimeout(tick, 12); }
+      else { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); }
+    }
+  }
+  tick();
+})();
+
+/* ── 3D CUBE (interactive_3d_cube_skill.md) ──────────────── */
+(function initCube() {
+  const cube = document.getElementById('cube3d');
+  const wrap = document.getElementById('cubeContainer');
+  if (!cube || !wrap) return;
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    cube.style.transform = `rotateX(${y * -80}deg) rotateY(${x * 80}deg)`;
+    cube.style.animation = 'none';
+  });
+  wrap.addEventListener('mouseleave', () => {
+    cube.style.transform = '';
+    cube.style.animation = 'rotateCube 20s infinite linear';
+  });
+})();
+
+/* ── TILT 3D CARDS (tilt_3d_cards_skill.md) ─────────────── */
+(function initTiltCards() {
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    const inner = card.querySelector('.tilt-card__inner');
+    if (!inner) return;
+    card.addEventListener('mouseenter', () => inner.classList.add('is-hovered'));
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const rx = e.clientX - r.left, ry = e.clientY - r.top;
+      const x = rx / r.width - 0.5, y = ry / r.height - 0.5;
+      inner.style.transform = `perspective(1200px) rotateY(${x*22}deg) rotateX(${y*-18}deg) translateZ(20px) scale(1.02)`;
+      inner.style.transition = 'transform .08s linear,box-shadow .08s linear,border-color .2s ease';
+      const sx = -x * 25, sy = y * 25;
+      inner.style.boxShadow = `${sx}px ${sy}px 45px rgba(0,0,0,.5),0 0 45px rgba(0,220,227,.1)`;
+      const hue = Math.round(185 + x * 30);
+      inner.style.borderColor = `hsla(${hue},100%,55%,.45)`;
+      card.style.setProperty('--mouse-x', `${(rx/r.width)*100}%`);
+      card.style.setProperty('--mouse-y', `${(ry/r.height)*100}%`);
+    });
+    card.addEventListener('mouseleave', () => {
+      inner.classList.remove('is-hovered');
+      inner.style.transform = inner.style.boxShadow = inner.style.borderColor = '';
+      inner.style.transition = 'transform .6s cubic-bezier(.19,1,.22,1),box-shadow .6s ease,border-color .6s ease';
+    });
+  });
+})();
+
+/* ── SCROLL REVEAL (01-web-scrolling skill) ──────────────── */
+(function initReveal() {
+  const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger, .section-3d');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  targets.forEach(t => obs.observe(t));
+})();
+</script>
+</body></html>
