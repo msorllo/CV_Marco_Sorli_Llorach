@@ -867,6 +867,29 @@
       }
     }
 
+    /* ── SOFT BLINK ANIMATION ─────────────── */
+    @keyframes softBlink {
+      0%, 100% { 
+        opacity: 0.85; 
+        filter: drop-shadow(0 0 0px transparent); 
+        color: inherit; 
+      }
+      50% { 
+        opacity: 1; 
+        filter: drop-shadow(0 0 8px rgba(0, 220, 227, 0.8)); 
+        color: #00dce3; 
+      }
+    }
+    .soft-blink {
+      animation: softBlink 2.5s infinite ease-in-out;
+    }
+    .soft-blink:hover {
+      animation: none !important;
+      opacity: 1;
+      filter: drop-shadow(0 0 10px rgba(0, 220, 227, 1));
+      color: #00dce3;
+    }
+
     /* ── CONTACT FEEDBACK PANELS ─────────────── */
     .contact-feedback-panel {
       position: relative;
@@ -1140,15 +1163,15 @@
         <div class="font-terminal-code text-on-surface-variant flex flex-wrap gap-4 justify-center md:justify-start"
           style="font-size:11px">
           <a href="tel:+34644476661"
-            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300">
+            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300 soft-blink">
             <span class="material-symbols-outlined" style="font-size:13px">phone_iphone</span>+34 644 476 661
           </a>
           <a href="mailto:msorlillorach@gmail.com"
-            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300">
+            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300 soft-blink">
             <span class="material-symbols-outlined" style="font-size:13px">mail</span>msorlillorach@gmail.com
           </a>
           <a href="https://github.com/msorllo" target="_blank"
-            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300">
+            class="flex items-center gap-1 hover:text-primary-fixed hover:underline transition-all duration-300 soft-blink">
             <span class="material-symbols-outlined" style="font-size:13px">code</span>github/msorllo
           </a>
         </div>
