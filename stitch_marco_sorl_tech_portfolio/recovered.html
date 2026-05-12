@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="dark scroll-smooth" lang="es">
 
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Marco Sorlí Llorach — Técnico Sistemas & Automatizador IA</title>
+  <title>Marco SorlÃ­ Llorach â€” TÃ©cnico Sistemas & Automatizador IA</title>
   <meta name="description"
-    content="Portfolio de Marco Sorlí Llorach. Técnico de Redes y Sistemas, N8N, Linux, Windows Server, Python. Benicarló, Castellón." />
+    content="Portfolio de Marco SorlÃ­ Llorach. TÃ©cnico de Redes y Sistemas, N8N, Linux, Windows Server, Python. BenicarlÃ³, CastellÃ³n." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -223,7 +223,7 @@
       border: 1px solid #00f7ff;
     }
 
-    /* ── SCROLL REVEAL ───────────────────── */
+    /* â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -299,7 +299,7 @@
       transition-delay: .45s
     }
 
-    /* ── TYPEWRITER CURSOR ───────────────── */
+    /* â”€â”€ TYPEWRITER CURSOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .tw-cursor {
       display: inline-block;
       width: 2px;
@@ -322,7 +322,7 @@
       }
     }
 
-    /* ── TILT 3D CARDS ───────────────────── */
+    /* â”€â”€ TILT 3D CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .tilt-card {
       position: relative;
       perspective: 1200px;
@@ -362,7 +362,7 @@
       z-index: 1
     }
 
-    /* ── INTERACTIVE 3D CUBE ───────────── */
+    /* â”€â”€ INTERACTIVE 3D CUBE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .mistereia-core {
       width: 180px;
       height: 180px;
@@ -393,49 +393,23 @@
       color: #efffff;
     }
 
-    .cube-3d .front {
-      transform: translateZ(90px);
-    }
-
-    .cube-3d .back {
-      transform: rotateY(180deg) translateZ(90px);
-      border-color: rgba(112, 0, 255, .55);
-      box-shadow: inset 0 0 30px rgba(112, 0, 255, .1), 0 0 20px rgba(112, 0, 255, 0.2);
-    }
-
-    .cube-3d .right {
-      transform: rotateY(90deg) translateZ(90px);
-    }
-
-    .cube-3d .left {
-      transform: rotateY(-90deg) translateZ(90px);
-      border-color: rgba(112, 0, 255, .55);
-      box-shadow: inset 0 0 30px rgba(112, 0, 255, .1), 0 0 20px rgba(112, 0, 255, 0.2);
-    }
-
-    .cube-3d .top {
-      transform: rotateX(90deg) translateZ(90px);
-    }
-
-    .cube-3d .bottom {
-      transform: rotateX(-90deg) translateZ(90px);
-    }
+    .cube-3d .front  { transform: translateZ(90px); }
+    .cube-3d .back   { transform: rotateY(180deg) translateZ(90px); border-color: rgba(112, 0, 255, .55); box-shadow: inset 0 0 30px rgba(112, 0, 255, .1), 0 0 20px rgba(112, 0, 255, 0.2); }
+    .cube-3d .right  { transform: rotateY(90deg) translateZ(90px); }
+    .cube-3d .left   { transform: rotateY(-90deg) translateZ(90px); border-color: rgba(112, 0, 255, .55); box-shadow: inset 0 0 30px rgba(112, 0, 255, .1), 0 0 20px rgba(112, 0, 255, 0.2); }
+    .cube-3d .top    { transform: rotateX(90deg) translateZ(90px); }
+    .cube-3d .bottom { transform: rotateX(-90deg) translateZ(90px); }
 
     @keyframes rotateCube {
-      0% {
-        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-      }
-
-      100% {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-      }
+      0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
     }
 
-    /* ── HERO PHOTO FRAME ────────────────── */
+    /* â”€â”€ HERO PHOTO FRAME â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .photo-frame {
       position: relative;
       width: 180px;
-      height: 240px;
+      height: 180px;
       flex-shrink: 0
     }
 
@@ -526,7 +500,7 @@
       }
     }
 
-    /* ── 3D SECTION EFFECT ───────────────── */
+    /* â”€â”€ 3D SECTION EFFECT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .section-3d {
       opacity: 0;
       transform: perspective(800px) rotateX(8deg) translateY(40px);
@@ -735,25 +709,11 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
-      .aurora-grid::before,
-      .aurora-grid::after,
-      .hud-panel::before,
-      .float-node,
-      .cube-3d {
-        animation: none !important
-      }
-
-      .reveal,
-      .reveal-left,
-      .reveal-right,
-      .stagger>*,
-      .section-3d {
-        transition: none !important
-      }
+      .aurora-grid::before, .aurora-grid::after, .hud-panel::before, .float-node, .cube-3d { animation: none !important }
+      .reveal, .reveal-left, .reveal-right, .stagger>*, .section-3d { transition: none !important }
     }
 
-    /* ── MOBILE NAV ─────────────────────────── */
+    /* â”€â”€ MOBILE NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     .nav-hamburger {
       display: flex;
       flex-direction: column;
@@ -764,7 +724,6 @@
       background: transparent;
       outline: none;
     }
-
     .nav-hamburger span {
       display: block;
       width: 22px;
@@ -772,19 +731,9 @@
       background: #00dce3;
       transition: all .3s ease;
     }
-
-    .nav-hamburger.is-open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-hamburger.is-open span:nth-child(2) {
-      opacity: 0;
-      width: 0;
-    }
-
-    .nav-hamburger.is-open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
+    .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     .mobile-nav-overlay {
       display: none;
@@ -798,11 +747,7 @@
       gap: 2.5rem;
       backdrop-filter: blur(12px);
     }
-
-    .mobile-nav-overlay.is-open {
-      display: flex;
-    }
-
+    .mobile-nav-overlay.is-open { display: flex; }
     .mobile-nav-overlay .mobile-nav-close {
       position: absolute;
       top: 1.2rem;
@@ -814,7 +759,6 @@
       cursor: pointer;
       line-height: 1;
     }
-
     .mobile-nav-link {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.6rem;
@@ -825,145 +769,19 @@
       transition: color .2s ease, text-shadow .2s ease;
       text-decoration: none;
     }
+    .mobile-nav-link:hover { color: #00dce3; text-shadow: 0 0 20px rgba(0,220,227,.5); }
 
-    .mobile-nav-link:hover {
-      color: #00dce3;
-      text-shadow: 0 0 20px rgba(0, 220, 227, .5);
-    }
-
-    /* ── MOBILE RESPONSIVE FIXES ─────────────── */
+    /* â”€â”€ MOBILE RESPONSIVE FIXES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     @media (max-width: 767px) {
-      .photo-frame {
-        width: 140px;
-        height: 186px;
-      }
-
-      .photo-frame__cut img {
-        object-position: center top;
-      }
-
-      .fab-label {
-        display: none;
-      }
-
-      .fab-btn {
-        padding: 0.8rem;
-      }
-
-      main {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-      }
-
-      .metric-tile {
-        padding: 0.6rem;
-      }
+      .photo-frame { width: 140px; height: 140px; }
+      .photo-frame__cut img { object-position: center top; }
+      .fab-label { display: none; }
+      .fab-btn { padding: 0.8rem; }
+      main { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .metric-tile { padding: 0.6rem; }
     }
-
     @media (max-width: 480px) {
-      .photo-frame {
-        width: 120px;
-        height: 160px;
-      }
-    }
-
-    /* ── CONTACT FEEDBACK PANELS ─────────────── */
-    .contact-feedback-panel {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2.5rem 2rem;
-      min-height: 280px;
-      border: 1px solid;
-      text-align: center;
-      animation: feedbackFadeIn .4s ease both;
-    }
-    @keyframes feedbackFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .contact-feedback-panel--success {
-      background: rgba(0, 220, 100, .05);
-      border-color: rgba(0, 220, 100, .4);
-      box-shadow: 0 0 40px rgba(0, 220, 100, .08), inset 0 0 40px rgba(0, 220, 100, .04);
-    }
-    .contact-feedback-panel--error {
-      background: rgba(255, 60, 80, .05);
-      border-color: rgba(255, 60, 80, .4);
-      box-shadow: 0 0 40px rgba(255, 60, 80, .08), inset 0 0 40px rgba(255, 60, 80, .04);
-    }
-    /* Corner decorations */
-    .contact-feedback-panel__corner-tl,
-    .contact-feedback-panel__corner-br {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-style: solid;
-    }
-    .contact-feedback-panel--success .contact-feedback-panel__corner-tl,
-    .contact-feedback-panel--success .contact-feedback-panel__corner-br {
-      border-color: rgba(0, 220, 100, .8);
-    }
-    .contact-feedback-panel--error .contact-feedback-panel__corner-tl,
-    .contact-feedback-panel--error .contact-feedback-panel__corner-br {
-      border-color: rgba(255, 60, 80, .8);
-    }
-    .contact-feedback-panel__corner-tl {
-      top: -1px; left: -1px;
-      border-width: 2px 0 0 2px;
-    }
-    .contact-feedback-panel__corner-br {
-      bottom: -1px; right: -1px;
-      border-width: 0 2px 2px 0;
-    }
-    /* Icon */
-    .contact-feedback-panel__icon {
-      font-size: 3rem !important;
-    }
-    .contact-feedback-panel--success .contact-feedback-panel__icon { color: #00dc64; }
-    .contact-feedback-panel--error   .contact-feedback-panel__icon { color: #ff3c50; }
-    /* Title */
-    .contact-feedback-panel__title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .9rem;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-    .contact-feedback-panel--success .contact-feedback-panel__title { color: #00dc64; }
-    .contact-feedback-panel--error   .contact-feedback-panel__title { color: #ff3c50; }
-    /* Message */
-    .contact-feedback-panel__msg {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .78rem;
-      color: rgba(218, 227, 238, .65);
-      max-width: 28ch;
-      line-height: 1.6;
-    }
-    /* Retry button */
-    .contact-feedback-panel__btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      margin-top: .5rem;
-      padding: .55rem 1.4rem;
-      border: 1px solid rgba(0, 220, 227, .4);
-      background: transparent;
-      color: #00dce3;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
-    }
-    .contact-feedback-panel__btn:hover {
-      background: rgba(0, 220, 227, .12);
-      border-color: #00dce3;
+      .photo-frame { width: 120px; height: 120px; }
     }
   </style>
   <script id="tailwind-config">
@@ -1064,30 +882,25 @@
       MSL // ROOT
     </div>
     <div class="hidden md:flex gap-6">
-      <a class="text-cyan-400 border-b border-cyan-400 pb-1" href="#sobre-mi">Sobre Mí</a>
-      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10"
-        href="#habilidades">Habilidades</a>
-      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10"
-        href="#proyectos">Proyectos</a>
-      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10"
-        href="#automatizaciones">Automatizaciones</a>
-      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10"
-        href="#experiencia">Experiencia</a>
+      <a class="text-cyan-400 border-b border-cyan-400 pb-1" href="#sobre-mi">Sobre MÃ­</a>
+      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#habilidades">Habilidades</a>
+      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#proyectos">Proyectos</a>
+      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#automatizaciones">Automatizaciones</a>
+      <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#experiencia">Experiencia</a>
       <a class="text-slate-400 hover:text-cyan-300 transition-colors hover:bg-cyan-500/10" href="#contacto">Contacto</a>
     </div>
     <div class="flex items-center gap-3 text-cyan-400">
-      <span
-        class="material-symbols-outlined hover:bg-cyan-500/10 hover:text-cyan-300 cursor-pointer p-2 rounded hidden md:inline-flex">terminal</span>
-      <!-- Hamburger (solo móvil) -->
-      <button class="nav-hamburger md:hidden" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span class="material-symbols-outlined hover:bg-cyan-500/10 hover:text-cyan-300 cursor-pointer p-2 rounded hidden md:inline-flex">terminal</span>
+      <!-- Hamburger (solo mÃ³vil) -->
+      <button class="nav-hamburger md:hidden" id="navToggle" aria-label="Abrir menÃº" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
   <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-    <button class="mobile-nav-close" id="navClose" aria-label="Cerrar menú">×</button>
-    <a class="mobile-nav-link" href="#sobre-mi">Sobre Mí</a>
+  <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-modal="true" aria-label="MenÃº de navegaciÃ³n">
+    <button class="mobile-nav-close" id="navClose" aria-label="Cerrar menÃº">Ã—</button>
+    <a class="mobile-nav-link" href="#sobre-mi">Sobre MÃ­</a>
     <a class="mobile-nav-link" href="#habilidades">Habilidades</a>
     <a class="mobile-nav-link" href="#proyectos">Proyectos</a>
     <a class="mobile-nav-link" href="#automatizaciones">Automatizaciones</a>
@@ -1096,7 +909,7 @@
   </div>
   <!-- Floating Action Button -->
   <a class="fab-btn fixed bottom-6 right-6 z-50 bg-primary text-on-primary font-label-caps text-label-caps px-4 md:px-6 py-3 md:py-4 flex items-center gap-2 border-2 border-primary glitch-hover hover:shadow-[0_0_20px_rgba(0,247,255,0.5)] transition-all"
-    data-text="[ Descargar CV.pdf ]" href="CV_Marco_Sorli_Llorach.pdf" download>
+    data-text="[ Descargar CV.pdf ]" href="CV.pdf" download>
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
     <span class="fab-label">[ Descargar CV.pdf ]</span>
   </a>
@@ -1110,8 +923,7 @@
       <div class="reveal-left flex flex-col items-center gap-4 flex-shrink-0">
         <div class="photo-frame">
           <div class="photo-frame__cut">
-            <img src="assets/photo.png" alt="Marco Sorlí Llorach"
-              style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;" />
+            <img src="assets/photo.png" alt="Marco SorlÃ­ Llorach" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transform:rotate(-90deg);transform-origin:center center;"/>
           </div>
           <div class="br-corners"></div>
           <div class="scan-line"></div>
@@ -1119,7 +931,7 @@
         <div class="font-terminal-code text-terminal-code flex items-center gap-2"
           style="font-size:10px;color:rgba(0,220,227,.5)">
           <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
-          DISPONIBLE DESDE 19 JUNIO · BENICARLÓ
+          DISPONIBLE Â· BENICARLÃ“
         </div>
       </div>
 
@@ -1130,7 +942,7 @@
             class="text-primary-fixed">whoami</span>
         </div>
         <h1 class="font-headline-xl text-primary" style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1">
-          Marco Sorlí<br />Llorach
+          Marco SorlÃ­<br />Llorach
         </h1>
         <!-- Dynamic Typewriter (frases del CV) -->
         <div class="font-terminal-code" style="font-size:clamp(.8rem,1.8vw,.95rem);color:#00dce3;min-height:1.6em">
@@ -1166,7 +978,7 @@
           </div>
           <div class="metric-tile">
             <div class="font-headline-md text-secondary">N8N</div>
-            <div class="font-terminal-code text-on-surface-variant" style="font-size:10px">flujos agénticos</div>
+            <div class="font-terminal-code text-on-surface-variant" style="font-size:10px">flujos agÃ©nticos</div>
           </div>
           <div class="metric-tile">
             <div class="font-headline-md text-primary">SMR</div>
@@ -1179,12 +991,12 @@
       <div class="reveal-right hidden lg:flex flex-1 justify-center items-center gap-3">
         <div class="mistereia-core" id="cubeContainer">
           <div class="cube-3d" id="cube3d">
-            <div class="front">🚀</div>
+            <div class="front">ðŸš€</div>
             <div class="back">IA</div>
-            <div class="right">⚙️</div>
-            <div class="left">💎</div>
-            <div class="top">⚡</div>
-            <div class="bottom">🔥</div>
+            <div class="right">âš™ï¸</div>
+            <div class="left">ðŸ’Ž</div>
+            <div class="top">âš¡</div>
+            <div class="bottom">ðŸ”¥</div>
           </div>
         </div>
       </div>
@@ -1196,15 +1008,15 @@
       <div class="bg-surface-container-high p-8 border border-outline-variant glow-card hud-panel">
         <h2 class="font-headline-md text-headline-md text-primary-fixed mb-4">RESUMEN PROFESIONAL</h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant">
-          Técnico informático altamente disciplinado, especializado en administración de sistemas, redes y
-          automatización agéntica. Combino Windows Server, Linux, N8N, modelos locales y desarrollo Python para
-          convertir necesidades reales en soluciones prácticas, documentadas y orientadas a precisión operativa.
+          TÃ©cnico informÃ¡tico altamente disciplinado, especializado en administraciÃ³n de sistemas, redes y
+          automatizaciÃ³n agÃ©ntica. Combino Windows Server, Linux, N8N, modelos locales y desarrollo Python para
+          convertir necesidades reales en soluciones prÃ¡cticas, documentadas y orientadas a precisiÃ³n operativa.
         </p>
         <div class="flex flex-wrap gap-2 mt-6">
-          <span class="command-chip">optimización_recursos</span>
+          <span class="command-chip">optimizaciÃ³n_recursos</span>
           <span class="command-chip">soporte_usuario</span>
           <span class="command-chip">privacidad_local</span>
-          <span class="command-chip">documentación</span>
+          <span class="command-chip">documentaciÃ³n</span>
         </div>
       </div>
       <!-- ABOUT ME (TERMINAL) -->
@@ -1221,12 +1033,12 @@
           <p class="mb-2"><span class="text-primary">&gt;</span> Disciplina y Rigor:</p>
           <p class="ml-4 mb-4 text-on-surface-variant">Compromiso total con el trabajo bien hecho y la entrega de
             soluciones testeadas, estables y documentadas.</p>
-          <p class="mb-2"><span class="text-primary">&gt;</span> Resolución Proactiva de Problemas:</p>
-          <p class="ml-4 mb-4 text-on-surface-variant">Capacidad de análisis técnico para diagnosticar fallos críticos,
+          <p class="mb-2"><span class="text-primary">&gt;</span> ResoluciÃ³n Proactiva de Problemas:</p>
+          <p class="ml-4 mb-4 text-on-surface-variant">Capacidad de anÃ¡lisis tÃ©cnico para diagnosticar fallos crÃ­ticos,
             resolver incidencias y proponer mejoras de eficiencia.</p>
           <p class="mb-2"><span class="text-primary">&gt;</span> Mentalidad de Aprendizaje Continuo:</p>
-          <p class="ml-4 text-on-surface-variant">Autodidacta por vocación, con foco en IA agéntica, automatización y
-            adopción rápida de tecnologías nuevas.</p>
+          <p class="ml-4 text-on-surface-variant">Autodidacta por vocaciÃ³n, con foco en IA agÃ©ntica, automatizaciÃ³n y
+            adopciÃ³n rÃ¡pida de tecnologÃ­as nuevas.</p>
           <span class="animate-pulse text-primary">_</span>
         </div>
       </div>
@@ -1241,14 +1053,14 @@
         <div class="tilt-card">
           <div class="tilt-card__inner">
             <div class="tilt-card__content">
-              <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Sistemas y Virtualización</h3>
+              <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Sistemas y VirtualizaciÃ³n</h3>
               <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
                 <li>&gt; Windows Server (2019/2022)</li>
                 <li>&gt; Ubuntu Server</li>
                 <li>&gt; Kali Linux</li>
                 <li>&gt; VirtualBox / Packet Tracer</li>
                 <li>&gt; Montaje y Mant. Hardware</li>
-                <li>&gt; Gestión de almacenamiento</li>
+                <li>&gt; GestiÃ³n de almacenamiento</li>
               </ul>
             </div>
           </div>
@@ -1263,7 +1075,7 @@
                 <li>&gt; Routers / Switches</li>
                 <li>&gt; DNS, DHCP, FTP</li>
                 <li>&gt; TCP/IP</li>
-                <li>&gt; Diseño y montaje LAN/WLAN</li>
+                <li>&gt; DiseÃ±o y montaje LAN/WLAN</li>
               </ul>
             </div>
           </div>
@@ -1274,8 +1086,8 @@
             <div class="tilt-card__content">
               <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">Seguridad y Soporte</h3>
               <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
-                <li>&gt; Seguridad informática básica</li>
-                <li>&gt; Periféricos y diagnóstico</li>
+                <li>&gt; Seguridad informÃ¡tica bÃ¡sica</li>
+                <li>&gt; PerifÃ©ricos y diagnÃ³stico</li>
                 <li>&gt; Soporte a usuario final</li>
               </ul>
             </div>
@@ -1285,7 +1097,7 @@
         <div class="tilt-card">
           <div class="tilt-card__inner">
             <div class="tilt-card__content">
-              <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">IA y Automatización</h3>
+              <h3 class="font-label-caps text-label-caps text-secondary mb-4 uppercase">IA y AutomatizaciÃ³n</h3>
               <ul class="font-terminal-code text-terminal-code text-on-surface-variant space-y-2">
                 <li>&gt; N8N</li>
                 <li>&gt; Claude Code, Codex</li>
@@ -1307,7 +1119,7 @@
                 <li>&gt; Apps de escritorio</li>
                 <li>&gt; Web avanzada (3D/Animaciones)</li>
                 <li>&gt; Apps web</li>
-                <li>&gt; Digitalización y software</li>
+                <li>&gt; DigitalizaciÃ³n y software</li>
               </ul>
             </div>
           </div>
@@ -1325,13 +1137,13 @@
             <span class="material-symbols-outlined">hub</span> IA_AUTOMATION_CORE
           </h2>
           <p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
-            Flujos orientados a productividad real: captura de datos, clasificación, generación asistida y validación
+            Flujos orientados a productividad real: captura de datos, clasificaciÃ³n, generaciÃ³n asistida y validaciÃ³n
             humana para mantener control y calidad.
           </p>
           <div class="space-y-2 font-terminal-code text-terminal-code text-on-surface-variant">
             <p><span class="text-primary">&gt;</span> N8N como orquestador principal</p>
             <p><span class="text-primary">&gt;</span> Ollama para modelos locales</p>
-            <p><span class="text-primary">&gt;</span> Google Sheets como índice operativo</p>
+            <p><span class="text-primary">&gt;</span> Google Sheets como Ã­ndice operativo</p>
             <p><span class="text-primary">&gt;</span> Claude Code para acelerar desarrollo</p>
           </div>
         </div>
@@ -1339,10 +1151,10 @@
           <article class="flow-card float-node">
             <div class="flex items-center gap-2 text-primary-fixed mb-3">
               <span class="material-symbols-outlined">mark_email_read</span>
-              <h3 class="font-label-caps text-label-caps uppercase">Gestión de Leads</h3>
+              <h3 class="font-label-caps text-label-caps uppercase">GestiÃ³n de Leads</h3>
             </div>
             <p class="font-body-sm text-body-sm text-on-surface-variant">Sistema en N8N que captura correos, indexa
-              datos en Google Sheets y genera borradores de respuesta mediante agentes de IA para revisión humana.</p>
+              datos en Google Sheets y genera borradores de respuesta mediante agentes de IA para revisiÃ³n humana.</p>
           </article>
           <article class="flow-card float-node">
             <div class="flex items-center gap-2 text-secondary mb-3">
@@ -1363,10 +1175,10 @@
           <article class="flow-card float-node">
             <div class="flex items-center gap-2 text-secondary mb-3">
               <span class="material-symbols-outlined">auto_fix_high</span>
-              <h3 class="font-label-caps text-label-caps uppercase">Digitalización</h3>
+              <h3 class="font-label-caps text-label-caps uppercase">DigitalizaciÃ³n</h3>
             </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Conversión de tareas manuales y archivos
-              antiguos en procesos digitales más rápidos, trazables y fáciles de mantener.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">ConversiÃ³n de tareas manuales y archivos
+              antiguos en procesos digitales mÃ¡s rÃ¡pidos, trazables y fÃ¡ciles de mantener.</p>
           </article>
         </div>
       </div>
@@ -1391,14 +1203,14 @@
           <div
             class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
             <h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Infraestructura de Red</h4>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Diseño y montaje de redes LAN/WLAN, routers,
+            <p class="font-body-sm text-body-sm text-on-surface-variant">DiseÃ±o y montaje de redes LAN/WLAN, routers,
               switches y servicios DNS, DHCP y FTP en entornos reales y virtualizados.</p>
           </div>
           <div
             class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
-            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">Automatización de Leads</h4>
+            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-2">AutomatizaciÃ³n de Leads</h4>
             <p class="font-body-sm text-body-sm text-on-surface-variant">Captura de correos, registro en Google Sheets y
-              borradores de respuesta generados por IA, con revisión humana antes del envío.</p>
+              borradores de respuesta generados por IA, con revisiÃ³n humana antes del envÃ­o.</p>
           </div>
           <div
             class="bg-surface-container border border-outline-variant p-6 glow-card hover:border-primary-container reveal hud-panel">
@@ -1419,35 +1231,35 @@
           <div class="relative reveal-left">
             <div class="absolute -left-[29px] top-1 w-2 h-2 bg-primary-fixed shadow-[0_0_10px_#54f8ff] animate-pulse">
             </div>
-            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico de Soporte IT</h4>
-            <p class="font-terminal-code text-terminal-code text-secondary mb-2">IES Ramón Cid | Mar - Jun 2026</p>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Resolución de incidencias, mentoring técnico a
-              estudiantes de 1º y 2º ESO, mantenimiento preventivo del parque informático, red y digitalización de
+            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">TÃ©cnico de Soporte IT</h4>
+            <p class="font-terminal-code text-terminal-code text-secondary mb-2">IES RamÃ³n Cid | Mar - Jun 2026</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">ResoluciÃ³n de incidencias, mentoring tÃ©cnico a
+              estudiantes de 1Âº y 2Âº ESO, mantenimiento preventivo del parque informÃ¡tico, red y digitalizaciÃ³n de
               documentos antiguos.</p>
           </div>
           <!-- Exp 2 -->
           <div class="relative reveal-left">
             <div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
-            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Técnico Informático</h4>
+            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">TÃ©cnico InformÃ¡tico</h4>
             <p class="font-terminal-code text-terminal-code text-secondary mb-2">Audiograu | May - Jun 2025</p>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Soporte técnico y configuración de sistemas de
-              sonido e iluminación profesional, aplicando precisión en montaje de equipos tecnológicos.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Soporte tÃ©cnico y configuraciÃ³n de sistemas de
+              sonido e iluminaciÃ³n profesional, aplicando precisiÃ³n en montaje de equipos tecnolÃ³gicos.</p>
           </div>
           <!-- Exp 3 -->
           <div class="relative reveal-left">
             <div class="absolute -left-[29px] top-1 w-2 h-2 bg-surface-variant border border-outline-variant"></div>
-            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">Prácticas Informática</h4>
-            <p class="font-terminal-code text-terminal-code text-secondary mb-2">Tienda Local Benicarló | 2024</p>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Montaje de equipos a medida, diagnóstico de
-              hardware, gestión de periféricos, almacenamiento y atención técnica al cliente.</p>
+            <h4 class="font-label-caps text-label-caps text-primary-fixed mb-1">PrÃ¡cticas InformÃ¡tica</h4>
+            <p class="font-terminal-code text-terminal-code text-secondary mb-2">Tienda Local BenicarlÃ³ | 2024</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Montaje de equipos a medida, diagnÃ³stico de
+              hardware, gestiÃ³n de perifÃ©ricos, almacenamiento y atenciÃ³n tÃ©cnica al cliente.</p>
           </div>
           <!-- Edu 1 -->
           <div class="relative pt-4 reveal-left">
             <div class="absolute -left-[29px] top-5 w-2 h-2 bg-secondary-container"></div>
             <h4 class="font-label-caps text-label-caps text-secondary mb-1">Grado Medio - SMR</h4>
             <p class="font-terminal-code text-terminal-code text-outline mb-2">IES Joan Coromines | 2024 - 2026</p>
-            <p class="font-body-sm text-body-sm text-on-surface-variant">Sistemas Microinformáticos y Redes.
-              Especialización en administración de sistemas y virtualización.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Sistemas MicroinformÃ¡ticos y Redes.
+              EspecializaciÃ³n en administraciÃ³n de sistemas y virtualizaciÃ³n.</p>
           </div>
         </div>
       </div>
@@ -1456,7 +1268,7 @@
     <section class="border-t border-outline-variant pt-16 grid md:grid-cols-2 gap-gutter" id="contacto">
       <div>
         <h2 class="font-headline-md text-headline-md text-primary-fixed mb-6 flex items-center gap-2">
-          <span class="material-symbols-outlined">terminal</span> CONTACT
+          <span class="material-symbols-outlined">terminal</span> INITIATE_CONTACT
         </h2>
         <div class="font-terminal-code text-terminal-code text-on-surface-variant space-y-4 mb-8">
           <a href="tel:+34644476661" class="flex items-center gap-2 hover:text-primary-fixed transition-colors">
@@ -1467,7 +1279,7 @@
             <span class="material-symbols-outlined text-primary">mail</span> msorlillorach@gmail.com
           </a>
           <p class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary">location_on</span> Benicarló, Castellón
+            <span class="material-symbols-outlined text-primary">location_on</span> BenicarlÃ³, CastellÃ³n
           </p>
           <a href="https://github.com/msorllo" target="_blank"
             class="flex items-center gap-2 hover:text-primary-fixed transition-colors">
@@ -1475,73 +1287,44 @@
           </a>
         </div>
       </div>
-      <!-- FORM WRAPPER: states = form / success / error -->
-      <div id="contactWrapper">
-
-        <!-- STATE: FORM -->
-        <form id="contactForm" class="bg-surface-container-high p-6 border border-outline-variant flex flex-col gap-4"
-          novalidate>
-          <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Marco Sorlí" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
-          <div>
-            <label class="block font-label-caps text-label-caps text-primary mb-2">Nombre</label>
-            <input
-              class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2"
-              name="nombre" placeholder="&gt; introducir_nombre" type="text" required />
-          </div>
-          <div>
-            <label class="block font-label-caps text-label-caps text-primary mb-2">Email</label>
-            <input
-              class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2"
-              name="email" placeholder="&gt; introducir_email" type="email" required />
-          </div>
-          <div>
-            <label class="block font-label-caps text-label-caps text-primary mb-2">Mensaje</label>
-            <textarea
-              class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2 resize-none"
-              name="mensaje" placeholder="&gt; escribir_mensaje..." rows="4" required></textarea>
-          </div>
-          <button id="contactSubmitBtn"
-            class="mt-4 bg-transparent border border-primary text-primary font-label-caps text-label-caps py-3 px-6 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2"
-            type="submit">
-            <span class="material-symbols-outlined">send</span>
-            <span id="submitBtnLabel">ENVIAR_PACKET</span>
-          </button>
-        </form>
-
-        <!-- STATE: SUCCESS -->
-        <div id="formSuccess" class="contact-feedback-panel contact-feedback-panel--success hidden">
-          <div class="contact-feedback-panel__corner-tl"></div>
-          <div class="contact-feedback-panel__corner-br"></div>
-          <span class="material-symbols-outlined contact-feedback-panel__icon">check_circle</span>
-          <p class="contact-feedback-panel__title">PACKET_ENVIADO</p>
-          <p class="contact-feedback-panel__msg">Mensaje recibido. Te responderé lo antes posible.</p>
-          <button id="formSuccessRetry" class="contact-feedback-panel__btn">
-            <span class="material-symbols-outlined" style="font-size:1rem;">refresh</span> ENVIAR_OTRO
-          </button>
+      <form id="contactForm" class="bg-surface-container-high p-6 border border-outline-variant flex flex-col gap-4"
+        action="https://formsubmit.co/msorlillorach@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio de Marco SorlÃ­" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+        <div>
+          <label class="block font-label-caps text-label-caps text-primary mb-2">Nombre</label>
+          <input
+            class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2"
+            name="nombre" placeholder="&gt; introducir_nombre" type="text" required />
         </div>
-
-        <!-- STATE: ERROR -->
-        <div id="formError" class="contact-feedback-panel contact-feedback-panel--error hidden">
-          <div class="contact-feedback-panel__corner-tl"></div>
-          <div class="contact-feedback-panel__corner-br"></div>
-          <span class="material-symbols-outlined contact-feedback-panel__icon">error</span>
-          <p class="contact-feedback-panel__title">TRANSMISSION_FAILED</p>
-          <p class="contact-feedback-panel__msg">Error al enviar el mensaje. Comprueba tu conexión e inténtalo de nuevo.</p>
-          <button id="formErrorRetry" class="contact-feedback-panel__btn">
-            <span class="material-symbols-outlined" style="font-size:1rem;">refresh</span> REINTENTAR
-          </button>
+        <div>
+          <label class="block font-label-caps text-label-caps text-primary mb-2">Email</label>
+          <input
+            class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2"
+            name="email" placeholder="&gt; introducir_email" type="email" required />
         </div>
-
-      </div>
+        <div>
+          <label class="block font-label-caps text-label-caps text-primary mb-2">Mensaje</label>
+          <textarea
+            class="w-full bg-surface border-b border-outline-variant border-t-0 border-x-0 text-on-surface focus:ring-0 focus:border-primary font-terminal-code text-terminal-code px-0 py-2 resize-none"
+            name="mensaje" placeholder="&gt; escribir_mensaje..." rows="4" required></textarea>
+        </div>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        <button
+          class="mt-4 bg-transparent border border-primary text-primary font-label-caps text-label-caps py-3 px-6 uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2"
+          type="submit">
+          <span class="material-symbols-outlined">send</span> ENVIAR_PACKET
+        </button>
+      </form>
     </section>
   </main>
   <!-- Footer -->
   <footer
     class="bg-slate-950 font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 full-width border-t border-cyan-900/50 w-full py-12 flex flex-col items-center justify-center gap-4 bg-black transition-opacity duration-500 mt-16">
     <div class="text-cyan-400 font-bold">
-      © 2026 MARCO SORLÍ LLORACH
+      Â© 2024 MARCO SORLÃ LLORACH | ACCESO_AUTORIZADO
     </div>
     <div class="flex gap-4">
       <a class="text-slate-500 hover:text-cyan-400 hover:glow-sm transition-colors" href="https://github.com/msorllo"
@@ -1549,18 +1332,18 @@
     </div>
   </footer>
   <script>
-      /* ── SMOOTH SCROLLING (smooth_scrolling_skill.md) ────────── */
-      /* ── TYPEWRITER (typewriter_skill.md) ─────────────────────── */
+      /* â”€â”€ SMOOTH SCROLLING (smooth_scrolling_skill.md) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+      /* â”€â”€ TYPEWRITER (typewriter_skill.md) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
       (function initTypewriter() {
         const el = document.getElementById('typewriterHero');
         if (!el) return;
         const phrases = [
           '>_ Administrador de Sistemas & Redes',
           '>_ Especialista Windows Server & Linux',
-          '>_ Automatización agéntica con N8N e IA',
-          '>_ Técnico de Soporte IT · SMR 2024-2026',
+          '>_ AutomatizaciÃ³n agÃ©ntica con N8N e IA',
+          '>_ TÃ©cnico de Soporte IT Â· SMR 2024-2026',
           '>_ Python, Chrome Extensions y software',
-          '>_ Ollama local · privacidad y ahorro API'
+          '>_ Ollama local Â· privacidad y ahorro API'
         ];
         let pi = 0, ci = 0, del = false, cursor;
         function tick() {
@@ -1592,62 +1375,37 @@
       }, { passive: true });
     })();
 
-    /* ── CONTACT FORM (fetch-based, no redirect) ── */
+    /* LOCAL FILE CONTACT FALLBACK */
     (function initContactForm() {
-      const form       = document.getElementById('contactForm');
-      const btnLabel   = document.getElementById('submitBtnLabel');
-      const submitBtn  = document.getElementById('contactSubmitBtn');
-      const stateForm  = form;
-      const stateOk    = document.getElementById('formSuccess');
-      const stateErr   = document.getElementById('formError');
-      if (!form || !stateOk || !stateErr) return;
-
-      function showState(target) {
-        [stateForm, stateOk, stateErr].forEach(el => el.classList.add('hidden'));
-        target.classList.remove('hidden');
-      }
-
-      function resetForm() {
-        form.reset();
-        if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
-        submitBtn.disabled = false;
-        showState(stateForm);
-      }
-
-      document.getElementById('formSuccessRetry').addEventListener('click', resetForm);
-      document.getElementById('formErrorRetry').addEventListener('click', resetForm);
-
-      form.addEventListener('submit', async e => {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', e => {
+        if (window.location.protocol !== 'file:') return;
         e.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-
-        // Loading state
-        submitBtn.disabled = true;
-        if (btnLabel) btnLabel.textContent = 'ENVIANDO...';
-
-        const data = new FormData(form);
-
-        try {
-          const res = await fetch('https://formsubmit.co/ajax/msorlillorach@gmail.com', {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-          const json = await res.json();
-          if (res.ok && json.success === 'true') {
-            showState(stateOk);
-          } else {
-            throw new Error(json.message || 'server_error');
-          }
-        } catch (_) {
-          submitBtn.disabled = false;
-          if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
-          showState(stateErr);
+        const nombre = form.elements.nombre.value.trim();
+        const email = form.elements.email.value.trim();
+        const mensaje = form.elements.mensaje.value.trim();
+        if (!nombre || !email || !mensaje) {
+          form.reportValidity();
+          return;
         }
+        const subject = encodeURIComponent('Nuevo mensaje desde el portfolio de Marco SorlÃ­');
+        const plainBody = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
+        const body = encodeURIComponent(plainBody);
+        const mailto = `mailto:msorlillorach@gmail.com?subject=${subject}&body=${body}`;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(`Para: msorlillorach@gmail.com\nAsunto: Nuevo mensaje desde el portfolio de Marco SorlÃ­\n\n${plainBody}`).catch(() => { });
+        }
+        if (status) {
+          status.innerHTML = 'EstÃ¡s abriendo la web como archivo local. Para enviar directo, publÃ­cala o Ã¡brela desde un servidor web.<br/>He copiado el mensaje al portapapeles y voy a abrir tu app de correo.';
+          status.classList.add('is-visible');
+        }
+        window.location.href = mailto;
       });
     })();
 
-    /* ── 3D CUBE (interactive_3d_cube_skill.md) ───── */
+    /* â”€â”€ 3D CUBE (interactive_3d_cube_skill.md) â”€â”€â”€â”€â”€ */
     (function initCube() {
       const cube = document.getElementById('cube3d');
       const wrap = document.getElementById('cubeContainer');
@@ -1665,7 +1423,7 @@
       });
     })();
 
-    /* ── TILT 3D CARDS (tilt_3d_cards_skill.md) ─────────────── */
+    /* â”€â”€ TILT 3D CARDS (tilt_3d_cards_skill.md) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     (function initTiltCards() {
       document.querySelectorAll('.tilt-card').forEach(card => {
         const inner = card.querySelector('.tilt-card__inner');
@@ -1692,7 +1450,7 @@
       });
     })();
 
-    /* ── SCROLL REVEAL (01-web-scrolling skill) ──────────────── */
+    /* â”€â”€ SCROLL REVEAL (01-web-scrolling skill) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     (function initReveal() {
       const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger, .section-3d');
       const obs = new IntersectionObserver(entries => {
@@ -1701,7 +1459,7 @@
       targets.forEach(t => obs.observe(t));
     })();
 
-    /* ── MOBILE NAV TOGGLE ───────────────────── */
+    /* â”€â”€ MOBILE NAV TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     (function initMobileNav() {
       const toggle = document.getElementById('navToggle');
       const overlay = document.getElementById('mobileNav');
