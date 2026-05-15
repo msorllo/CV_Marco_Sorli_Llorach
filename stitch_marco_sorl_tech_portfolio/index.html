@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="dark scroll-smooth" lang="es">
 
@@ -1564,7 +1564,7 @@
   <footer
     class="bg-slate-950 font-['Space_Grotesk'] text-xs uppercase tracking-widest text-slate-500 full-width border-t border-cyan-900/50 w-full py-12 flex flex-col items-center justify-center gap-4 bg-black transition-opacity duration-500 mt-16">
     <div class="text-cyan-400 font-bold">
-      © 2026 MARCO SORLÍ LLORACH
+      &copy; 2026 MARCO SORL&Iacute; LLORACH
     </div>
     <div class="flex gap-4">
       <a class="text-slate-500 hover:text-cyan-400 hover:glow-sm transition-colors" href="https://github.com/msorllo"
@@ -1572,60 +1572,58 @@
     </div>
   </footer>
   <script>
-      /* ── SMOOTH SCROLLING (smooth_scrolling_skill.md) ────────── */
-      /* ── TYPEWRITER (typewriter_skill.md) ─────────────────────── */
-      (function initTypewriter() {
-        const el = document.getElementById('typewriterHero');
-        if (!el) return;
-        const phrases = [
-          '>_ Administrador de Sistemas & Redes',
-          '>_ Especialista Windows Server & Linux',
-          '>_ Automatización agéntica con N8N e IA',
-          '>_ Técnico de Soporte IT · SMR 2024-2026',
-          '>_ Python, Chrome Extensions y software',
-          '>_ Ollama local · privacidad y ahorro API'
-        ];
-        let pi = 0, ci = 0, del = false, cursor;
-        function tick() {
-          const phrase = phrases[pi];
-          const shown = phrase.substring(0, ci);
-          if (cursor) cursor.remove();
-          el.textContent = shown;
-          cursor = document.createElement('span');
-          cursor.className = 'tw-cursor';
-          el.appendChild(cursor);
-          if (!del) {
-            if (ci < phrase.length) { ci++; setTimeout(tick, 35 + Math.random() * 25); }
-            else setTimeout(() => { del = true; tick(); }, 1800);
-          } else {
-            if (ci > 0) { ci--; setTimeout(tick, 12); }
-            else { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); }
-          }
+    /* ── TYPEWRITER ─────────────────────────── */
+    (function initTypewriter() {
+      var el = document.getElementById('typewriterHero');
+      if (!el) return;
+      var phrases = [
+        '>_ Administrador de Sistemas & Redes',
+        '>_ Especialista Windows Server & Linux',
+        '>_ Automatizacion agentica con N8N e IA',
+        '>_ Tecnico de Soporte IT - SMR 2024-2026',
+        '>_ Python, Chrome Extensions y software',
+        '>_ Ollama local - privacidad y ahorro API'
+      ];
+      var pi = 0, ci = 0, isDeleting = false, cursor;
+      function tick() {
+        var phrase = phrases[pi];
+        if (cursor) cursor.remove();
+        el.textContent = phrase.substring(0, ci);
+        cursor = document.createElement('span');
+        cursor.className = 'tw-cursor';
+        el.appendChild(cursor);
+        if (!isDeleting) {
+          if (ci < phrase.length) { ci++; setTimeout(tick, 35 + Math.random() * 25); }
+          else setTimeout(function() { isDeleting = true; tick(); }, 1800);
+        } else {
+          if (ci > 0) { ci--; setTimeout(tick, 12); }
+          else { isDeleting = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); }
         }
-        tick();
-      })();
+      }
+      tick();
+    })();
 
-    /* PREMIUM BACKGROUND SPOTLIGHT */
+    /* ── BACKGROUND SPOTLIGHT ───────────────── */
     (function initSpotlight() {
-      const layer = document.querySelector('.aurora-grid');
+      var layer = document.querySelector('.aurora-grid');
       if (!layer) return;
-      window.addEventListener('pointermove', e => {
-        layer.style.setProperty('--spot-x', `${(e.clientX / window.innerWidth) * 100}%`);
-        layer.style.setProperty('--spot-y', `${(e.clientY / window.innerHeight) * 100}%`);
+      window.addEventListener('pointermove', function(e) {
+        layer.style.setProperty('--spot-x', (e.clientX / window.innerWidth * 100) + '%');
+        layer.style.setProperty('--spot-y', (e.clientY / window.innerHeight * 100) + '%');
       }, { passive: true });
     })();
 
-    /* ── CONTACT FORM (Web3Forms) ── */
+    /* ── CONTACT FORM (Web3Forms) ───────────── */
     (function initContactForm() {
-      const form      = document.getElementById('contactForm');
-      const btnLabel  = document.getElementById('submitBtnLabel');
-      const submitBtn = document.getElementById('contactSubmitBtn');
-      const stateOk   = document.getElementById('formSuccess');
-      const stateErr  = document.getElementById('formError');
+      var form      = document.getElementById('contactForm');
+      var btnLabel  = document.getElementById('submitBtnLabel');
+      var submitBtn = document.getElementById('contactSubmitBtn');
+      var stateOk   = document.getElementById('formSuccess');
+      var stateErr  = document.getElementById('formError');
       if (!form || !stateOk || !stateErr) return;
 
       function showState(target) {
-        [form, stateOk, stateErr].forEach(el => el.classList.add('hidden'));
+        [form, stateOk, stateErr].forEach(function(el) { el.classList.add('hidden'); });
         target.classList.remove('hidden');
       }
 
@@ -1639,81 +1637,71 @@
       document.getElementById('formSuccessRetry').addEventListener('click', resetForm);
       document.getElementById('formErrorRetry').addEventListener('click', resetForm);
 
-      form.addEventListener('submit', async e => {
+      form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
-
         submitBtn.disabled = true;
         if (btnLabel) btnLabel.textContent = 'ENVIANDO...';
-
-        const fd = new FormData(form);
-        const payload = {
-          access_key: 'a6ffa921-9e7e-4210-9a7a-efa1793b5f13',
-          subject: 'Nuevo mensaje desde el portfolio de Marco Sorli',
-          from_name: fd.get('nombre') || 'Portfolio Contact',
-          email: fd.get('email'),
-          message: fd.get('mensaje'),
-          botcheck: ''
-        };
-
-        try {
-          const res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          const json = await res.json();
-          if (res.ok && json.success) {
-            showState(stateOk);
-          } else {
-            throw new Error(json.message || 'server_error');
-          }
-        } catch (_) {
+        var fd = new FormData(form);
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'a6ffa921-9e7e-4210-9a7a-efa1793b5f13',
+            subject: 'Nuevo mensaje desde el portfolio de Marco Sorli',
+            from_name: fd.get('nombre') || 'Portfolio Contact',
+            email: fd.get('email'),
+            message: fd.get('mensaje'),
+            botcheck: ''
+          })
+        })
+        .then(function(res) { return res.json().then(function(j){ return {ok:res.ok, j:j}; }); })
+        .then(function(r) {
+          if (r.ok && r.j.success) { showState(stateOk); }
+          else { throw new Error(r.j.message || 'error'); }
+        })
+        .catch(function() {
           submitBtn.disabled = false;
           if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
           showState(stateErr);
-        }
+        });
       });
     })();
 
-    /* ── 3D CUBE (interactive_3d_cube_skill.md) ───── */
+    /* ── 3D CUBE ────────────────────────────── */
     (function initCube() {
-      const cube = document.getElementById('cube3d');
-      const wrap = document.getElementById('cubeContainer');
+      var cube = document.getElementById('cube3d');
+      var wrap = document.getElementById('cubeContainer');
       if (!cube || !wrap) return;
-      wrap.addEventListener('mousemove', e => {
-        const r = wrap.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        cube.style.transform = `rotateX(${y * 100}deg) rotateY(${x * 100}deg)`;
+      wrap.addEventListener('mousemove', function(e) {
+        var r = wrap.getBoundingClientRect();
+        cube.style.transform = 'rotateX(' + ((e.clientY-r.top)/r.height-0.5)*100 + 'deg) rotateY(' + ((e.clientX-r.left)/r.width-0.5)*100 + 'deg)';
         cube.style.animation = 'none';
       });
-      wrap.addEventListener('mouseleave', () => {
+      wrap.addEventListener('mouseleave', function() {
         cube.style.transform = '';
         cube.style.animation = 'rotateCube 20s infinite linear';
       });
     })();
 
-    /* ── TILT 3D CARDS (tilt_3d_cards_skill.md) ─────────────── */
+    /* ── TILT 3D CARDS ──────────────────────── */
     (function initTiltCards() {
-      document.querySelectorAll('.tilt-card').forEach(card => {
-        const inner = card.querySelector('.tilt-card__inner');
+      document.querySelectorAll('.tilt-card').forEach(function(card) {
+        var inner = card.querySelector('.tilt-card__inner');
         if (!inner) return;
-        card.addEventListener('mouseenter', () => inner.classList.add('is-hovered'));
-        card.addEventListener('mousemove', e => {
-          const r = card.getBoundingClientRect();
-          const rx = e.clientX - r.left, ry = e.clientY - r.top;
-          const x = rx / r.width - 0.5, y = ry / r.height - 0.5;
-          inner.style.transform = `perspective(1200px) rotateY(${x * 22}deg) rotateX(${y * -18}deg) translateZ(20px) scale(1.02)`;
+        card.addEventListener('mouseenter', function() { inner.classList.add('is-hovered'); });
+        card.addEventListener('mousemove', function(e) {
+          var r = card.getBoundingClientRect();
+          var rx = e.clientX-r.left, ry = e.clientY-r.top;
+          var x = rx/r.width-0.5, y = ry/r.height-0.5;
+          inner.style.transform = 'perspective(1200px) rotateY('+(x*22)+'deg) rotateX('+(y*-18)+'deg) translateZ(20px) scale(1.02)';
           inner.style.transition = 'transform .08s linear,box-shadow .08s linear,border-color .2s ease';
-          const sx = -x * 25, sy = y * 25;
-          inner.style.boxShadow = `${sx}px ${sy}px 45px rgba(0,0,0,.5),0 0 45px rgba(0,220,227,.1)`;
-          const hue = Math.round(185 + x * 30);
-          inner.style.borderColor = `hsla(${hue},100%,55%,.45)`;
-          card.style.setProperty('--mouse-x', `${(rx / r.width) * 100}%`);
-          card.style.setProperty('--mouse-y', `${(ry / r.height) * 100}%`);
+          inner.style.boxShadow = (-x*25)+'px '+(y*25)+'px 45px rgba(0,0,0,.5),0 0 45px rgba(0,220,227,.1)';
+          inner.style.borderColor = 'hsla('+Math.round(185+x*30)+',100%,55%,.45)';
+          card.style.setProperty('--mouse-x',(rx/r.width*100)+'%');
+          card.style.setProperty('--mouse-y',(ry/r.height*100)+'%');
         });
-        card.addEventListener('mouseleave', () => {
+        card.addEventListener('mouseleave', function() {
           inner.classList.remove('is-hovered');
           inner.style.transform = inner.style.boxShadow = inner.style.borderColor = '';
           inner.style.transition = 'transform .6s cubic-bezier(.19,1,.22,1),box-shadow .6s ease,border-color .6s ease';
@@ -1721,37 +1709,26 @@
       });
     })();
 
-    /* ── SCROLL REVEAL (01-web-scrolling skill) ──────────────── */
+    /* ── SCROLL REVEAL ──────────────────────── */
     (function initReveal() {
-      const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger, .section-3d');
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);} });
       }, { threshold: 0.12 });
-      targets.forEach(t => obs.observe(t));
+      document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger,.section-3d').forEach(function(t){obs.observe(t);});
     })();
 
-    /* ── MOBILE NAV TOGGLE ───────────────────── */
+    /* ── MOBILE NAV ─────────────────────────── */
     (function initMobileNav() {
-      const toggle = document.getElementById('navToggle');
-      const overlay = document.getElementById('mobileNav');
-      const closeBtn = document.getElementById('navClose');
+      var toggle   = document.getElementById('navToggle');
+      var overlay  = document.getElementById('mobileNav');
+      var closeBtn = document.getElementById('navClose');
       if (!toggle || !overlay) return;
-      function openNav() {
-        toggle.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        overlay.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeNav() {
-        toggle.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        overlay.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-      toggle.addEventListener('click', () => overlay.classList.contains('is-open') ? closeNav() : openNav());
+      function openNav()  { toggle.classList.add('is-open'); toggle.setAttribute('aria-expanded','true');  overlay.classList.add('is-open');    document.body.style.overflow='hidden'; }
+      function closeNav() { toggle.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); overlay.classList.remove('is-open'); document.body.style.overflow=''; }
+      toggle.addEventListener('click', function() { overlay.classList.contains('is-open') ? closeNav() : openNav(); });
       if (closeBtn) closeBtn.addEventListener('click', closeNav);
-      overlay.querySelectorAll('.mobile-nav-link').forEach(a => a.addEventListener('click', closeNav));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+      overlay.querySelectorAll('.mobile-nav-link').forEach(function(a){ a.addEventListener('click', closeNav); });
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeNav(); });
     })();
   </script>
 </body>
