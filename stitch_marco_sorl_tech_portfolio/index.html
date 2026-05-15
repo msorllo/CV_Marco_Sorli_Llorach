@@ -719,109 +719,19 @@
       border-color: rgba(0, 247, 255, .65)
     }
 
-    /* ── CONTACT FEEDBACK PANELS ─────────────── */
-    .contact-feedback-panel {
-      position: relative;
-      background: rgba(6, 15, 22, .92);
-      border: 1px solid rgba(0, 220, 227, .3);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      text-align: center;
-      min-height: 260px;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .contact-feedback-panel.hidden {
+    .form-status {
       display: none;
-    }
-
-    /* Corner decorations */
-    .contact-feedback-panel__corner-tl,
-    .contact-feedback-panel__corner-br {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-color: currentColor;
-      border-style: solid;
-    }
-
-    .contact-feedback-panel__corner-tl {
-      top: -1px;
-      left: -1px;
-      border-width: 2px 0 0 2px;
-    }
-
-    .contact-feedback-panel__corner-br {
-      bottom: -1px;
-      right: -1px;
-      border-width: 0 2px 2px 0;
-    }
-
-    .contact-feedback-panel--success {
-      border-color: rgba(0, 220, 227, .45);
-      color: #00dce3;
-    }
-
-    .contact-feedback-panel--error {
-      border-color: rgba(255, 60, 60, .45);
-      color: #ff4444;
-    }
-
-    .contact-feedback-panel__icon {
-      font-size: 3rem !important;
-    }
-
-    .contact-feedback-panel--success .contact-feedback-panel__icon {
-      color: #00dce3;
-      text-shadow: 0 0 20px rgba(0, 220, 227, .6);
-    }
-
-    .contact-feedback-panel--error .contact-feedback-panel__icon {
-      color: #ff4444;
-      text-shadow: 0 0 20px rgba(255, 60, 60, .6);
-    }
-
-    .contact-feedback-panel__title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-
-    .contact-feedback-panel__msg {
-      font-size: 12px;
+      border: 1px solid rgba(0, 220, 227, .35);
+      background: rgba(6, 15, 22, .88);
       color: #b9caca;
-      line-height: 1.6;
-      max-width: 280px;
-    }
-
-    .contact-feedback-panel__btn {
-      margin-top: .5rem;
-      background: transparent;
-      border: 1px solid currentColor;
-      color: inherit;
+      padding: .9rem 1rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      padding: .6rem 1.4rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      transition: background .2s ease, color .2s ease;
+      font-size: 12px;
+      line-height: 1.5
     }
 
-    .contact-feedback-panel--success .contact-feedback-panel__btn:hover {
-      background: rgba(0, 220, 227, .15);
-    }
-
-    .contact-feedback-panel--error .contact-feedback-panel__btn:hover {
-      background: rgba(255, 60, 60, .15);
+    .form-status.is-visible {
+      display: block
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1662,7 +1572,187 @@
     </div>
   </footer>
   <script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+      /* ── SMOOTH SCROLLING (smooth_scrolling_skill.md) ────────── */
+      /* ── TYPEWRITER (typewriter_skill.md) ─────────────────────── */
+      (function initTypewriter() {
+        const el = document.getElementById('typewriterHero');
+        if (!el) return;
+        const phrases = [
+          '>_ Administrador de Sistemas & Redes',
+          '>_ Especialista Windows Server & Linux',
+          '>_ Automatización agéntica con N8N e IA',
+          '>_ Técnico de Soporte IT · SMR 2024-2026',
+          '>_ Python, Chrome Extensions y software',
+          '>_ Ollama local · privacidad y ahorro API'
+        ];
+        let pi = 0, ci = 0, del = false, cursor;
+        function tick() {
+          const phrase = phrases[pi];
+          const shown = phrase.substring(0, ci);
+          if (cursor) cursor.remove();
+          el.textContent = shown;
+          cursor = document.createElement('span');
+          cursor.className = 'tw-cursor';
+          el.appendChild(cursor);
+          if (!del) {
+            if (ci < phrase.length) { ci++; setTimeout(tick, 35 + Math.random() * 25); }
+            else setTimeout(() => { del = true; tick(); }, 1800);
+          } else {
+            if (ci > 0) { ci--; setTimeout(tick, 12); }
+            else { del = false; pi = (pi + 1) % phrases.length; setTimeout(tick, 350); }
+          }
+        }
+        tick();
+      })();
+
+    /* PREMIUM BACKGROUND SPOTLIGHT */
+    (function initSpotlight() {
+      const layer = document.querySelector('.aurora-grid');
+      if (!layer) return;
+      window.addEventListener('pointermove', e => {
+        layer.style.setProperty('--spot-x', `${(e.clientX / window.innerWidth) * 100}%`);
+        layer.style.setProperty('--spot-y', `${(e.clientY / window.innerHeight) * 100}%`);
+      }, { passive: true });
+    })();
+
+    /* ── CONTACT FORM (Web3Forms) ── */
+    (function initContactForm() {
+      const form      = document.getElementById('contactForm');
+      const btnLabel  = document.getElementById('submitBtnLabel');
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const stateOk   = document.getElementById('formSuccess');
+      const stateErr  = document.getElementById('formError');
+      if (!form || !stateOk || !stateErr) return;
+
+      function showState(target) {
+        [form, stateOk, stateErr].forEach(el => el.classList.add('hidden'));
+        target.classList.remove('hidden');
+      }
+
+      function resetForm() {
+        form.reset();
+        if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
+        submitBtn.disabled = false;
+        showState(form);
+      }
+
+      document.getElementById('formSuccessRetry').addEventListener('click', resetForm);
+      document.getElementById('formErrorRetry').addEventListener('click', resetForm);
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+
+        submitBtn.disabled = true;
+        if (btnLabel) btnLabel.textContent = 'ENVIANDO...';
+
+        const fd = new FormData(form);
+        const payload = {
+          access_key: 'a6ffa921-9e7e-4210-9a7a-efa1793b5f13',
+          subject: 'Nuevo mensaje desde el portfolio de Marco Sorli',
+          from_name: fd.get('nombre') || 'Portfolio Contact',
+          email: fd.get('email'),
+          message: fd.get('mensaje'),
+          botcheck: ''
+        };
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await res.json();
+          if (res.ok && json.success) {
+            showState(stateOk);
+          } else {
+            throw new Error(json.message || 'server_error');
+          }
+        } catch (_) {
+          submitBtn.disabled = false;
+          if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
+          showState(stateErr);
+        }
+      });
+    })();
+
+    /* ── 3D CUBE (interactive_3d_cube_skill.md) ───── */
+    (function initCube() {
+      const cube = document.getElementById('cube3d');
+      const wrap = document.getElementById('cubeContainer');
+      if (!cube || !wrap) return;
+      wrap.addEventListener('mousemove', e => {
+        const r = wrap.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        cube.style.transform = `rotateX(${y * 100}deg) rotateY(${x * 100}deg)`;
+        cube.style.animation = 'none';
+      });
+      wrap.addEventListener('mouseleave', () => {
+        cube.style.transform = '';
+        cube.style.animation = 'rotateCube 20s infinite linear';
+      });
+    })();
+
+    /* ── TILT 3D CARDS (tilt_3d_cards_skill.md) ─────────────── */
+    (function initTiltCards() {
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        const inner = card.querySelector('.tilt-card__inner');
+        if (!inner) return;
+        card.addEventListener('mouseenter', () => inner.classList.add('is-hovered'));
+        card.addEventListener('mousemove', e => {
+          const r = card.getBoundingClientRect();
+          const rx = e.clientX - r.left, ry = e.clientY - r.top;
+          const x = rx / r.width - 0.5, y = ry / r.height - 0.5;
+          inner.style.transform = `perspective(1200px) rotateY(${x * 22}deg) rotateX(${y * -18}deg) translateZ(20px) scale(1.02)`;
+          inner.style.transition = 'transform .08s linear,box-shadow .08s linear,border-color .2s ease';
+          const sx = -x * 25, sy = y * 25;
+          inner.style.boxShadow = `${sx}px ${sy}px 45px rgba(0,0,0,.5),0 0 45px rgba(0,220,227,.1)`;
+          const hue = Math.round(185 + x * 30);
+          inner.style.borderColor = `hsla(${hue},100%,55%,.45)`;
+          card.style.setProperty('--mouse-x', `${(rx / r.width) * 100}%`);
+          card.style.setProperty('--mouse-y', `${(ry / r.height) * 100}%`);
+        });
+        card.addEventListener('mouseleave', () => {
+          inner.classList.remove('is-hovered');
+          inner.style.transform = inner.style.boxShadow = inner.style.borderColor = '';
+          inner.style.transition = 'transform .6s cubic-bezier(.19,1,.22,1),box-shadow .6s ease,border-color .6s ease';
+        });
+      });
+    })();
+
+    /* ── SCROLL REVEAL (01-web-scrolling skill) ──────────────── */
+    (function initReveal() {
+      const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger, .section-3d');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      targets.forEach(t => obs.observe(t));
+    })();
+
+    /* ── MOBILE NAV TOGGLE ───────────────────── */
+    (function initMobileNav() {
+      const toggle = document.getElementById('navToggle');
+      const overlay = document.getElementById('mobileNav');
+      const closeBtn = document.getElementById('navClose');
+      if (!toggle || !overlay) return;
+      function openNav() {
+        toggle.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeNav() {
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      toggle.addEventListener('click', () => overlay.classList.contains('is-open') ? closeNav() : openNav());
+      if (closeBtn) closeBtn.addEventListener('click', closeNav);
+      overlay.querySelectorAll('.mobile-nav-link').forEach(a => a.addEventListener('click', closeNav));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+    })();
   </script>
 </body>
 
