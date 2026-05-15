@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="dark scroll-smooth" lang="es">
 
@@ -1657,10 +1657,14 @@
         })
         .then(function(res) { return res.json().then(function(j){ return {ok:res.ok, j:j}; }); })
         .then(function(r) {
+          console.log('[Form] Web3Forms response:', r);
           if (r.ok && r.j.success) { showState(stateOk); }
-          else { throw new Error(r.j.message || 'error'); }
+          else { throw new Error(r.j.message || 'server_error'); }
         })
-        .catch(function() {
+        .catch(function(err) {
+          console.error('[Form] Error:', err);
+          var msgEl = document.querySelector('#formError .contact-feedback-panel__msg');
+          if (msgEl) msgEl.textContent = err.message || 'Error de red. Intenta de nuevo.';
           submitBtn.disabled = false;
           if (btnLabel) btnLabel.textContent = 'ENVIAR_PACKET';
           showState(stateErr);
